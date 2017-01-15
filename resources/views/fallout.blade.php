@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head></head>
+<head>
+    <script src="js/test.js"></script>
+</head>
 <body>
-hello world
+<button onclick="hello_world()">hello world</button>
 </body>
 </html>
