@@ -11,11 +11,11 @@ class character extends Model
         $this->belongsTo(User::class);
     }
 
-    public function character_stat(){
-        return $this->hasOne(character_stats::class,'character_id','id');
+    public function character_stats(){
+        return $this->hasOne(character_stats::class,'id','id');
     }
 
-    public function character_skill(){
+    public function character_skills(){
         return $this->hasOne(character_skills::class,'id','id');
     }
 }
