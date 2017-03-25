@@ -8,14 +8,14 @@ class character extends Model
 {
     //
     public function user(){
-        $this->belongsTo(User::class);
+       return $this->belongsTo(User::class);
     }
 
-    public function character_stats(){
+    public function stats(){
         return $this->hasOne(character_stats::class,'id','id');
     }
 
-    public function character_skills(){
+    public function skills(){
         return $this->hasOne(character_skills::class,'id','id');
     }
 }
