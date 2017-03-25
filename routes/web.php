@@ -18,7 +18,5 @@ Route::get('/', function () {
 
 Route::get('/fallout',"Game@game");
 Route::get('/test1',"Game@game");
-Route::auth();
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');

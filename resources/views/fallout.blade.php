@@ -1,9 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="js/test.js"></script>
-</head>
-<body>
-<button onclick="hello_world()">hello world</button>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Dashboard</div>
+
+                    <div class="panel-body">
+                        This is fallout!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
