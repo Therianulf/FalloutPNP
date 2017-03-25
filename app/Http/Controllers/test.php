@@ -7,4 +7,9 @@ use Illuminate\Http\Request;
 class test extends Controller
 {
     //
+
+    public function test1(Request $request){
+
+    }
+
 }
