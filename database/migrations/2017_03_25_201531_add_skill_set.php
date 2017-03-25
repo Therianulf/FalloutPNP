@@ -51,6 +51,7 @@ class AddSkillSet extends Migration
     {
         Schema::table('character_skills', function (Blueprint $table) {
             //
+            $table->dropColumn('small_guns','big_guns','energy_weapons','unarmed','melee_weapons','throwing','first_aid','doctor','sneak','steal','traps','science','repair','pilot','speech','barter','outdoorsman','first_tag','second_tag','third_tag','perk_tag');
         });
     }
 }
