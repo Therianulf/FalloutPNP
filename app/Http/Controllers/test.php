@@ -9,7 +9,8 @@ class test extends Controller
     //
 
     public function test1(Request $request){
-
+        $user = $request->user();
+        dd($user->characters);
     }
 
 }
