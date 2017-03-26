@@ -8,26 +8,29 @@
                     <div class="panel-heading">New Character</div>
 
                     <div class="panel-body">
+
+
                         <label for="first_name">Character's First Name</label> <input type="text" name="first_name" id="first_name">
                         <br/>
                         <label for="first_name">Character's Last Name</label> <input type="text" name="last_name" id="last_name">
                         <br/>
-                        <table>
-                            <tr>
-                                <td> <label for="first_name">Character's Last Name</label></td>
-                                <td>
-                                    <button>+</button>
-                                </td>
-                                <td>
-                                    <button>-</button>
-                                </td>
-                                <td>
-                                    <input type="number" value="5" id="str">
-                                </td>
+                        <label for="character_strength">Character's Strength</label> <input type="number" value="5" id="character_strength" name="character_strength">
+                        <br/>
+                        <label for="character_perception">Character's Perception</label> <input type="number" value="5" id="character_perception" name="character_perception">
+                        <br/>
+                        <label for="character_endurance">Character's Endurance</label> <input type="number" value="5" id="character_endurance" name="character_endurance">
+                        <br/>
+                        <label for="character_charisma">Character's Charisma</label> <input type="number" value="5" id="character_charisma" name="character_charisma">
+                        <br/>
+                        <label for="character_intelligence">Character's Intelligence</label> <input type="number" value="5" id="character_intelligence" name="character_intelligence">
+                        <br/>
+                        <label for="character_agility">Character's Agility</label> <input type="number" value="5" id="character_agility" name="character_agility">
+                        <br/>
+                        <label for="character_agility">Character's Agility</label> <input type="number" value="5" id="character_agility" name="character_agility">
 
-                            </tr>
 
-                        </table>
+
+
                     </div>
                 </div>
             </div>

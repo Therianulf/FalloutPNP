@@ -2,12 +2,21 @@
  * Created by therian on 3/26/2017.
  */
 
+$( document ).ready(
+    function() {
+        $(":input[type='number']").bind('keyup mouseup', function () {
+            $(":input[type='number']").each(
+                function(i){
+                    alert(this.val());
+                }
+            )
+        });
+});
 
 
 
-function assign_attribute() {
 
-}
+
 
 function check_attribute() {
 

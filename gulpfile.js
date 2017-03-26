@@ -16,5 +16,5 @@ require('laravel-elixir-vue-2');
 elixir(function(mix){
     mix.sass('app.scss')
        .webpack('app.js');
-    mix.scripts('new_character/attribute.js',"public/js/new_char.js");
+    mix.scripts(['jquery-3.2.0.min.js','new_character/attribute.js'],"public/js/new_char.js");
 });
