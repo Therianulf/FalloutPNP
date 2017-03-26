@@ -17,6 +17,7 @@ Route::get('/', function () {
 });
 
 Route::get('/fallout',"Game@game");
+Route::get('/new_char_name',"Game@new_character");
 Route::get('/test1',"test@test1");
 Auth::routes();
 
