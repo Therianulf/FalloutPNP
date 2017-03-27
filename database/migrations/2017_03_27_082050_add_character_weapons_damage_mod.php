@@ -15,7 +15,7 @@ class AddCharacterWeaponsDamageMod extends Migration
     {
         Schema::table('character_weapons', function (Blueprint $table) {
             //
-            $table->integer('damage_modifier')->default(0);
+            $table->integer('damage_modifier')->default(0)->after('damage');
         });
     }
 
