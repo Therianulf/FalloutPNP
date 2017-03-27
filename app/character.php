@@ -18,4 +18,6 @@ class character extends Model
     public function skills(){
         return $this->hasOne(character_skills::class,'id','id');
     }
+
+
 }
