@@ -19,5 +19,16 @@ class character extends Model
         return $this->hasOne(character_skills::class,'id','id');
     }
 
+    public function weapons(){
+        return $this->hasMany(character_weapons::class ,'character_id','id');
+    }
+
+    public function inventory(){
+        return $this->hasMany(character_inventory::class ,'character_id','id');
+    }
+
+    public function ammo(){
+        return $this->hasMany(character_ammo::class,'character_id','id');
+    }
 
 }
