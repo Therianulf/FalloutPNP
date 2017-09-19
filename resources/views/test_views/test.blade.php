@@ -10,7 +10,10 @@
                     <div class="panel-body">
                         {!! Form::open(['url' => 'testRequest']) !!}
 
+                        {!! Form::label('email','Email Address') !!}
+
                         {!! Form::text('email', 'example@gmail.com'); !!}
+
 
                         {!! Form::submit('submit'); !!}
 
