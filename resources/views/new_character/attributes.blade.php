@@ -7,6 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">New Character</div>
                     <div class="panel-body">
+
                         <label for="first_name">Character's First Name</label> <input type="text" name="first_name" id="first_name">
                         <br/>
                         <label for="last_name">Character's Last Name</label> <input type="text" name="last_name" id="last_name">

@@ -7,7 +7,9 @@ $( document ).ready(
     function(){
         $(":input[type='number']").bind('keyup mouseup', function (event) {
             checkTotal();
-            console.log(globalParamTotal);
+        });
+        $(":input[type='checkbox']").bind('mouseup', function () {
+           skill_tags();
         });
     }
 );
@@ -19,15 +21,8 @@ function checkTotal(){
         var currentVal = parseInt($(obj).val(),10);
         localParamTotal = localParamTotal + currentVal;
     });
-    $(document).find("#character_total_points").val(localParamTotal);
+
+    $(document).find("#character_total_points").text(localParamTotal);
+    $(document).find("#character_total_left").text(40 - localParamTotal);
     globalParamTotal = localParamTotal;
-}
-
-
-function check_attribute() {
-
-}
-
-function attribute_less_total() {
-    
 }

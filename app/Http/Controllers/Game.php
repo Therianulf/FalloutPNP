@@ -11,7 +11,12 @@ class Game extends Controller
     }
 
     public function new_character(Request $request){
-        return view('new_character.new_char' , ['user' => $request->user()]);
+        return view('new_character.attributes' , ['user' => $request->user()]);
+
+    }
+
+    public function character_skills(Request $request){
+
 
     }
 
