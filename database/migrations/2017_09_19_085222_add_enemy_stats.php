@@ -14,7 +14,7 @@ class AddEnemyStats extends Migration
     public function up()
     {
         //
-        Schema::table('enemies', function (Blueprint $table) {
+        Schema::table('enemy_stats', function (Blueprint $table) {
             $table->integer('enemy_id');
             $table->integer('strength')->default(5);
             $table->integer('perception')->default(5);
@@ -70,6 +70,17 @@ class AddEnemyStats extends Migration
 
 
         });
+    }
+
+    public function down(){
+        Schema::table('enemy_stats',function (Blueprint $table){
+            $table->dropColumn(['critical_chance','heal_rate','sequence','electric_resistance','gas_resistance',
+                'radiation_resistance','poison_resistance','damage_resistance','damage_threshold',
+                'melee_damage','carry_weight','action_points','total_armor','base_armor','hit_points',
+                'luck','agility','intelligence','charisma','endurance','perception','strength','enemy_id'
+            ]);
+        });
+
     }
 
 }
