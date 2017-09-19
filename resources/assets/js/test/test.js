@@ -1,3 +1,4 @@
 function test_function() {
-    console.log($(document).find('input[name=email]'))
+    email_value = $(document).find('input[name=email]').val();
+    console.log(email_value);
 }

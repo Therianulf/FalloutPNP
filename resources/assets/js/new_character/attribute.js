@@ -8,9 +8,6 @@ $( document ).ready(
         $(":input[type='number']").bind('keyup mouseup', function (event) {
             checkTotal();
         });
-        $(":input[type='checkbox']").bind('mouseup', function () {
-           skill_tags();
-        });
     }
 );
 
