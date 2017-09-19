@@ -20,6 +20,7 @@
         ]); ?>
     </script>
     <script src="js/new_char.js"></script>
+    <script src="js/new_char.js"></script>
 </head>
 <body>
 <div id="app">
