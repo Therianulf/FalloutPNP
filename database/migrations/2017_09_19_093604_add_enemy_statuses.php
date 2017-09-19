@@ -19,4 +19,9 @@ class AddEnemyStatuses extends Migration
             $table->string('status_description');
         });
     }
+    public function down(){
+
+    }
+
+
 }
