@@ -11,7 +11,7 @@ class Game extends Controller
     }
 
     public function new_character(Request $request){
-        return view('new_character.name' , ['user' => $request->user()]);
+        return view('new_character.new_char' , ['user' => $request->user()]);
 
     }
 

@@ -2,21 +2,6 @@
  * Created by therian on 3/26/2017.
  */
 
-/*
-$( document ).ready(
-    function() {
-        $(":input[type='number']").bind('keyup mouseup', function () {
-            $(":input[type='number']").each(
-                function(i){
-                    alert(this.val());
-                }
-            )
-        });
-});
-*/
-
-
-
 var globalParamTotal = 0; //this has to exist outside of the function
 $( document ).ready(
     function(){
@@ -34,7 +19,7 @@ function checkTotal(){
         var currentVal = parseInt($(obj).val(),10);
         localParamTotal = localParamTotal + currentVal;
     });
-    console.log(localParamTotal);
+    $(document).find("#character_total_points").val(localParamTotal);
     globalParamTotal = localParamTotal;
 }
 

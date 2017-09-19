@@ -19,5 +19,8 @@ Route::get('/', function () {
 Route::get('/home',"Game@game");
 Route::get('/new_char_name',"Game@new_character");
 Route::get('/test1',"test@test1");
+Route::get('/gm_screen','game_master@game_master_screen');
+Route::get('/gm_monsters','game_master@game_master_monsters');
+
 Auth::routes();
 
