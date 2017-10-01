@@ -1,29 +1,3 @@
-/**
- * Created by therian on 3/26/2017.
- */
-
-/*var globalParamTotal = 0; //this has to exist outside of the function
-$( document ).ready(
-    function(){
-        $(":input[type='number']").bind('keyup mouseup', function (event) {
-            checkTotal();
-        });
-    }
-);
-
-function checkTotal(){
-    var numberInputs = $(document).find(":input[type='number']"),
-        localParamTotal = 0;
-    $.each(numberInputs, function(index, obj){
-        var currentVal = parseInt($(obj).val(),10);
-        localParamTotal = localParamTotal + currentVal;
-    });
-
-    $(document).find("#character_total_points").text(localParamTotal);
-    $(document).find("#character_total_left").text(40 - localParamTotal);
-    globalParamTotal = localParamTotal;
-}*/
-
 (function($) {
     $.widget( "fo.attributesPage", {
         options: {
@@ -53,10 +27,9 @@ function checkTotal(){
                 });
             });
             submitBtn.on('click', function(event){
-                if ($(event.currentTarget).hasClass('disabled')){
-                    event.preventDefault();
-                }else{
-                    widget.submitForm();
+                event.preventDefault();
+                if (!$(event.currentTarget).hasClass('disabled')){
+                    widget._submitForm();
                 }
             });
             widget._updateProgressBar();
@@ -89,7 +62,7 @@ function checkTotal(){
             progressBar.progressbar({value: points});
         },
 
-        _spinnerUpdate: function(currentTarget) {
+        _spinnerUpdate: function() {
             var widget = this,
                 points = 0,
                 spinners = $(widget.element).find("[data-role='spinner']"),
@@ -117,7 +90,7 @@ function checkTotal(){
             var widget = this,
                 form = widget.options.selectors.form,
                 action = $(form).attr('action'),
-                data = form.serialize();
+                data = form.serializeArray();
 
             var promise = widget._ajax(action, data, false);
 
