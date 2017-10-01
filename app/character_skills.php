@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class character_skills extends Model
 {
-    //
-    public function determine_base_skills($character_id){
+    public static function determine_base_skills($character_id){
         $character_stats = character_stats::find($character_id);
         return [
             'small_guns'=>(5 + (4 * $character_stats->agility)),
