@@ -8,6 +8,6 @@ class testRequest extends Controller
 {
     //
     public function landing(Request $request){
-        dd($request);
+        dd($request->email);
     }
 }

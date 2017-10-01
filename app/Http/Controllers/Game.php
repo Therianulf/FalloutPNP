@@ -10,14 +10,6 @@ class Game extends Controller
         return view('fallout');
     }
 
-    public function new_character(Request $request){
-        return view('new_character.attributes' , ['user' => $request->user()]);
 
-    }
-
-    public function character_skills(Request $request){
-
-
-    }
 
 }
