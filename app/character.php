@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class character extends Model
 {
     //
-    protected $fillable = ['race','first_name','last_name','character_description','level'];
+    protected $fillable = ['race','first_name','last_name','character_description','level','experience','user_id'];
 
     public function user(){
        return $this->belongsTo(User::class);
