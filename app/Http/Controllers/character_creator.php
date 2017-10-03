@@ -16,8 +16,9 @@ class character_creator extends Controller
     }
 
     public function attributes_handler(Request $request){
+        $attributes = $request->get('attributes');
 
-       switch ($request->agility){
+       switch ($attributes['agility']){
            case 1:
                $action_points = 5;
                break;
@@ -40,13 +41,13 @@ class character_creator extends Controller
            case 10:
                $action_points = 10;
                break;
-           case ($request->agility > 10):
+           case ($attributes['agility'] > 10):
                $action_points = 10;
                break;
        }
 
-       switch ($request->strength){
-           case ($request->strength <= 6):
+       switch ($attributes['strength']){
+           case ($attributes['strength'] <= 6):
                $melee_damage = 1;
                break;
            case 7:
@@ -61,21 +62,29 @@ class character_creator extends Controller
            case 10:
                $melee_damage = 5;
                break;
-           case ($request->strength >= 11):
+           case ($attributes['strength'] >= 11):
                $melee_damage = 6;
                break;
        }
-       if ($request->endurance <= 5){
+       if ($attributes['endurance'] <= 5){
            $heal_rate = 1;
-       }elseif($request->endurance >= 6 AND $request->endurance <= 8){
+       }elseif($attributes['endurance'] >= 6 AND $attributes['endurance'] <= 8){
            $heal_rate = 2;
-       }elseif($request->endurance >= 9 AND $request->endurance <= 10){
+       }elseif($attributes['endurance'] >= 9 AND $attributes['endurance'] <= 10){
            $heal_rate = 3;
-       }elseif($request->endurance >= 11){
+       }elseif($attributes['endurance'] >= 11){
            $heal_rate = 4;
        }
-       $new_character = character::create(['first_name'=>$request->first_name,'last_name'=>$request->last_name,'character_description'=>$request->character_description,'race'=>'human','level'=>1,'experience'=>1,'user_id'=>$request->user()->id]);
-       $new_character_stats = character_stats::create(['strength'=>$request->strength,'perception'=>$request->perception,'endurance'=>$request->endurance,'charisma'=>$request->charisma,'intelligence'=>$request->intelligence,'agility'=>$request->agility,'luck'=>$request->luck,'hit_points'=>(15 + ($request->strength + (2 * $request->endurance))) ,'base_armor'=>0,'total_armor'=>0,'action_points'=>$action_points,'carry_weight'=>(25 + ($request->strength * 25)),'melee_damage'=>$melee_damage,'damage_threshold'=>0,'damage_resistance'=>0,'poison_resistance'=>($request->endurance * 5),'radiation_resistance'=>($request->endurance * 2),'gas_resistance'=>0,'electric_resistance'=>30,'sequence'=>((2 * $request->perception) + $request->intelligence),'heal_rate'=>$heal_rate,'critical_chance'=>$request->luck]);
+       $new_character = character::create([
+           'first_name'=>$attributes['first_name'],
+           'last_name'=>$attributes['last_name'],
+           'character_description'=>$attributes['character_description'],
+           'race'=>'human',
+           'level'=>1,
+           'experience'=>1,
+           'user_id'=>$request->user()->id
+       ]);
+       $new_character_stats = character_stats::create(['strength'=>$attributes['strength'],'perception'=>$attributes['perception'],'endurance'=>$attributes['endurance'],'charisma'=>$attributes['charisma'],'intelligence'=>$attributes['intelligence'],'agility'=>$attributes['agility'],'luck'=>$attributes['luck'],'hit_points'=>(15 + ($attributes['strength'] + (2 * $attributes['endurance']))) ,'base_armor'=>0,'total_armor'=>0,'action_points'=>$action_points,'carry_weight'=>(25 + ($attributes['strength'] * 25)),'melee_damage'=>$melee_damage,'damage_threshold'=>0,'damage_resistance'=>0,'poison_resistance'=>($attributes['endurance'] * 5),'radiation_resistance'=>($attributes['endurance'] * 2),'gas_resistance'=>0,'electric_resistance'=>30,'sequence'=>((2 * $attributes['perception']) + $attributes['intelligence']),'heal_rate'=>$heal_rate,'critical_chance'=>$attributes['luck']]);
         dd([$new_character,$new_character_stats]);
        //return view('new_character.skills',['character'=>$new_character,'stats'=>$new_character_stats]);
     }

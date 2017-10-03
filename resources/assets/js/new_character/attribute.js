@@ -12,10 +12,12 @@
                 sectionCont = self.find('#sectionCont'),
                 spinnerInputs = self.find("[data-role='spinner']"),
                 progressBar = self.find('#statProgressBar'),
+                form = self.find('form'),
                 submitBtn = self.find('.formSubmit');
 
             submitBtn.addClass('disabled');
             widget._setSelector('progressBar', progressBar);
+            widget._setSelector('form', form);
             widget._setSelector('submitBtn', submitBtn);
             sectionCont.accordion();
             spinnerInputs.each(function(){
@@ -89,8 +91,8 @@
         _submitForm: function(){
             var widget = this,
                 form = widget.options.selectors.form,
-                action = $(form).attr('action'),
-                data = form.serializeArray();
+                action = $(form).attr('action');
+                data = form.serialize();
 
             var promise = widget._ajax(action, data, false);
 
