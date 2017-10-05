@@ -1,25 +1,28 @@
 (function($) {
     $.widget( "fo.attributesPage", {
         options: {
+            activeIndex: 0,
             points: 0,
             maxPoints: 40,
+            submitDisabled: true,
             selectors: {}
         },
 
         _create: function() {
             var widget = this,
                 self = $(widget.element),
-                sectionCont = self.find('#sectionCont'),
+                pageTitleCont = self.find('.pgTitle .title'),
                 spinnerInputs = self.find("[data-role='spinner']"),
                 progressBar = self.find('#statProgressBar'),
                 form = self.find('form'),
                 submitBtn = self.find('.formSubmit');
 
             submitBtn.addClass('disabled');
+            widget._setSelector('pageTitleCont', pageTitleCont);
             widget._setSelector('progressBar', progressBar);
             widget._setSelector('form', form);
             widget._setSelector('submitBtn', submitBtn);
-            sectionCont.accordion();
+
             spinnerInputs.each(function(){
                 $(this).spinner({
                     min: 0,
@@ -27,6 +30,25 @@
                         widget._spinnerUpdate($(event.currentTarget));
                     }
                 });
+            });
+            widget._on({
+                'click.subMenu a': function(event){
+                    event.preventDefault();
+                    var crntTrgt = $(event.currentTarget),
+                        index = crntTrgt.index();
+
+                    if (crntTrgt.hasClass('submit')){
+
+                    }else{
+                        widget._toggleContent(index);
+                    }
+                },
+                'click.spinnerCont .fa-info-circle': function(event){
+                    var crntTrgt = $(event.currentTarget),
+                        index = crntTrgt.parents('.spinnerCont').index();
+
+                    widget._toggleSubContent(index);
+                }
             });
             submitBtn.on('click', function(event){
                 event.preventDefault();
@@ -54,6 +76,31 @@
                 cache: cache,
                 dataType: "json"
             });
+        },
+
+        _toggleContent: function(index) {
+            var widget = this,
+                self = $(widget.element),
+                pageTitleCont = widget.options.selectors.pageTitleCont,
+                mainContent = self.find('.mainContent .contentCont:eq(' + index + ')'),
+                title = mainContent.data('title'),
+                subContent = self.find('.subContent .contentCont:eq(' + index + ')'),
+                subMenuLinks = self.find('.subMenu a:eq(' + index + ')');
+
+            pageTitleCont.html(title);
+            mainContent.removeClass('hide').siblings('.contentCont').addClass('hide');
+            subContent.removeClass('hide').siblings('.contentCont').addClass('hide');
+            subMenuLinks.addClass('active').siblings('a').removeClass('active');
+        },
+
+        _toggleSubContent: function(index) {
+            var widget = this,
+                self = $(widget.element),
+                spinnerCont = self.find('.spinnerCont:eq(' + index + ')'),
+                subContent = self.find('.specialCont .descCont .desc:eq(' + index + ')');
+
+            spinnerCont.addClass('active').siblings('.spinnerCont').removeClass('active');
+            subContent.removeClass('hide').siblings('.desc').addClass('hide');
         },
 
         _updateProgressBar: function() {
