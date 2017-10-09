@@ -14,7 +14,6 @@
 
                         {!! Form::text('email', 'example@gmail.com'); !!}
 
-
                         {!! Form::submit('submit'); !!}
 
                         {!! Form::close() !!}
