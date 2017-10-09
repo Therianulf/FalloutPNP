@@ -15,9 +15,9 @@
                 spinnerInputs = self.find("[data-role='spinner']"),
                 progressBar = self.find('#statProgressBar'),
                 form = self.find('form'),
-                submitBtn = self.find('.formSubmit');
+                submitBtn = self.find('.submit');
 
-            submitBtn.addClass('disabled');
+            //submitBtn.addClass('disabled');
             widget._setSelector('pageTitleCont', pageTitleCont);
             widget._setSelector('progressBar', progressBar);
             widget._setSelector('form', form);
