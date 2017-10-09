@@ -31,15 +31,15 @@
                             <ul>
                                 <li>
                                     <label for="firstName">First Name:</label>
-                                    <input id="firstName" type="text" name="attributes[first_name]" />
+                                    <input id="firstName" type="text" name="first_name" />
                                 </li>
                                 <li>
                                     <label for="lastName">Last Name:</label>
-                                    <input id="lastName" type="text" name="attributes[last_name]" />
+                                    <input id="lastName" type="text" name="last_name" />
                                 </li>
                                 <li>
                                     <label for="charDesc">Character Bio:</label>
-                                    <textarea id="charDesc" name="attributes[character_description]" rows="4" cols="50"></textarea>
+                                    <textarea id="charDesc" name="character_description" rows="4" cols="50"></textarea>
                                 </li>
                             </ul>
                         </div>
@@ -47,31 +47,31 @@
                             <ul>
                                 <li class="spinnerCont active cf">
                                     <label for="strength">Strength: <i class="fa fa-info-circle"></i></label>
-                                    <input id="strength" name="attributes[strength]" data-role="spinner" value="0">
+                                    <input id="strength" name="strength" data-role="spinner" value="0">
                                 </li>
                                 <li class="spinnerCont cf">
                                     <label for="perception">Perception: <i class="fa fa-info-circle"></i></label>
-                                    <input id="perception" name="attributes[perception]" data-role="spinner" value="0">
+                                    <input id="perception" name="perception" data-role="spinner" value="0">
                                 </li>
                                 <li class="spinnerCont cf">
                                     <label for="endurance">Endurance: <i class="fa fa-info-circle"></i></label>
-                                    <input id="endurance" name="attributes[endurance]" data-role="spinner" value="0">
+                                    <input id="endurance" name="endurance" data-role="spinner" value="0">
                                 </li>
                                 <li class="spinnerCont cf">
                                     <label for="charisma">Charisma: <i class="fa fa-info-circle"></i></label>
-                                    <input id="charisma" name="attributes[charisma]" data-role="spinner" value="0">
+                                    <input id="charisma" name="charisma" data-role="spinner" value="0">
                                 </li>
                                 <li class="spinnerCont cf">
                                     <label for="intelligence">Intelligence: <i class="fa fa-info-circle"></i></label>
-                                    <input id="intelligence" name="attributes[intelligence]" data-role="spinner" value="0">
+                                    <input id="intelligence" name="intelligence" data-role="spinner" value="0">
                                 </li>
                                 <li class="spinnerCont cf">
                                     <label for="agility">Agility: <i class="fa fa-info-circle"></i></label>
-                                    <input id="agility" name="attributes[agility]" data-role="spinner" value="0">
+                                    <input id="agility" name="agility" data-role="spinner" value="0">
                                 </li>
                                 <li class="spinnerCont cf">
                                     <label for="luck">Luck: <i class="fa fa-info-circle"></i></label>
-                                    <input id="luck" name="attributes[luck]" data-role="spinner" value="0">
+                                    <input id="luck" name="luck" data-role="spinner" value="0">
                                 </li>
                             </ul>
                         </div>
