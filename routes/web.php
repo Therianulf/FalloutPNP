@@ -28,6 +28,7 @@ Route::get('/gm_monsters','game_master@game_master_monsters');
 Route::post('/testRequest','testRequest@landing');
 
 Route::get('/admin','admin@admin')->middleware('is_admin');
+Route::post('/to_hit','admin@to_hit')->middleware('is_admin');
 
 Auth::routes();
 
