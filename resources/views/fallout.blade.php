@@ -14,7 +14,8 @@
                         <br/>
                         Play existing Character
                         <br/>
-                        <form href="{{url('selected_character')}}" action="post">
+                        <form method="post" action="{{url('selected_character')}}">
+                            {{ csrf_field() }}
                         <select name="character_id">
                             @foreach($characters as $character)
                             <option value="{{$character->id}}">{{$character->first_name}} {{$character->last_name}}</option>
