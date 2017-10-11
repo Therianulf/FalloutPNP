@@ -76,6 +76,7 @@
                             </ul>
                         </div>
                         <button type="submit">submit</button>
+
                     </form>
                 </div>
                 <div class="subContent">
@@ -92,7 +93,7 @@
                     </div>
                     <div class="specialCont contentCont hide">
                         <div id="statProgressVal">
-                            <p>Skill Points: <span>0/40</span> Points Left</p>
+                            <p>Skill Points: <span>0/40</span> Points</p>
                         </div>
                         <div id="statProgressBar"></div>
                         <div class="descCont">
@@ -194,7 +195,7 @@
                     <div class="subMenu">
                         <a class="step1 active" href="#">Bio</a>
                         <a class="step2 disabled" href="#">S.P.E.C.I.A.L.</a>
-                      {{--  <a class="submit disabled" href="#">Done</a>--}}
+                        {{--<a class="submit disabled" href="#">Done</a>--}}
                     </div>
                     <div class="sep right"></div>
                 </div>

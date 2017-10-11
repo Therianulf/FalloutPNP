@@ -163,7 +163,7 @@
                 <div class="subContent">
                     <div class="skillCont contentCont">
                         <div id="statProgressVal">
-                            <p>Specialization Points: <span>0/3</span> Points Left</p>
+                            <p>Specialization Points: <span>0/3</span> Points</p>
                         </div>
                         <div class="descCont">
                             <div class="desc">
