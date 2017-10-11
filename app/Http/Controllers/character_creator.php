@@ -81,13 +81,34 @@ class character_creator extends Controller
 
     }
 
-    public function character_skills(Request $request){
-        return view('new_character.skills' , ['user' => $request->user()]);
-
-    }
-
     public function character_skills_handler(Request $request){
+        $input = $request->input();
+        unset($input['_token']);
+        $skill_array = character_skills::determine_base_skills($input['character_id']);
+        $character_id = $skill_array['id'] = $input['character_id'];
 
+        unset($input['character_id']);
+        $inc = 0;
+        foreach ($input as $key =>$value){
+            switch ($inc){
+                case 0:
+                    $skill_array['first_tag'] = $key;
+                    break;
+                case 1:
+                    $skill_array['second_tag'] = $key;
+                    break;
+                case 2:
+                    $skill_array['third_tag'] = $key;
+                    break;
+            }
+            if (array_key_exists($key,$skill_array)){
+                $skill_array[$key] = $skill_array[$key] + 20;
+                $inc ++;
+            }
+
+        }
+        $new_character_skills = character_skills::create($skill_array);
+        return view('new_character.character_complete',['character'=>character::find($character_id),'stats'=>character::find($character_id),'skills'=>$new_character_skills]);
 
     }
 }

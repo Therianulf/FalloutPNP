@@ -11,21 +11,22 @@
                 </div>
                 <div class="hpCont statCont">
                     <span class="title">HP</span>
-                    <span class="value">???/???</span>
+                    <span class="value">{{$stats->hit_points}}/{{$stats->hit_points}}</span>
                 </div>
                 <div class="apCont statCont">
                     <span class="title">AP</span>
-                    <span class="value">0/0</span>
+                    <span class="value">{{$stats->action_points}}/10</span>
                 </div>
                 <div class="xpCont statCont">
                     <span class="title">XP</span>
-                    <span class="value">0/???</span>
+                    <span class="value">0/100</span>
                 </div>
             </div>
             <div class="contentSection cf">
                 <div class="mainContent">
                     <form method="post" action="/skills_handler" >
                         {{ csrf_field() }}
+                        <input type="hidden" name="character_id" value="{{$character->id}}"/>
                         <div class="contentCont step1" data-title="Skills">
                             <ul>
                                 <li class="checkboxCont active cf">
