@@ -8,6 +8,9 @@ use App\character_skills;
 use App\character_stats;
 use App\character_status;
 use App\character_weapons;
+use App\character_ammo;
+use App\character_armor;
+
 use Illuminate\Http\Request;
 
 class Game extends Controller
