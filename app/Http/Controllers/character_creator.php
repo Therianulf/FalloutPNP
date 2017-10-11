@@ -75,9 +75,11 @@ class character_creator extends Controller
        }elseif($request->endurance >= 11){
            $heal_rate = 4;
        }
-       $new_character = character::create(['first_name'=>$request->first_name,'last_name'=>$request->last_name,'character_description'=>$request->character_description,'race'=>'human','level'=>1,'experience'=>0,'user_id'=>$request->user()->id]);
+       $new_character = character::create(['first_name'=>$request->first_name,'last_name'=>$request->last_name,'character_description'=>$request->character_description,'race'=>'human','level'=>1,'experience'=>0,'user_id'=>123/*$request->user()->id*/]);
        $new_character_stats = character_stats::create(['strength'=>$request->strength,'perception'=>$request->perception,'endurance'=>$request->endurance,'charisma'=>$request->charisma,'intelligence'=>$request->intelligence,'agility'=>$request->agility,'luck'=>$request->luck,'hit_points'=>(15 + ($request->strength + (2 * $request->endurance))) ,'base_armor'=>0,'total_armor'=>0,'action_points'=>$action_points,'carry_weight'=>(25 + ($request->strength * 25)),'melee_damage'=>$melee_damage,'damage_threshold'=>0,'damage_resistance'=>0,'poison_resistance'=>($request->endurance * 5),'radiation_resistance'=>($request->endurance * 2),'gas_resistance'=>0,'electric_resistance'=>30,'sequence'=>((2 * $request->perception) + $request->intelligence),'heal_rate'=>$heal_rate,'critical_chance'=>$request->luck]);
-       return view('new_character.skills',['character'=>$new_character,'stats'=>$new_character_stats,'base_skill_array'=>character_skills::determine_base_skills($new_character->id)]);
+       //return view('new_character.skills',['character'=>$new_character,'stats'=>$new_character_stats,'base_skill_array'=>character_skills::determine_base_skills($new_character->id)]);
+        echo(json_encode(array('result' => 'success')));
+        exit();
     }
 
     public function character_skills(Request $request){

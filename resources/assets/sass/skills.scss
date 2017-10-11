@@ -17,76 +17,13 @@
         width: 100%;
         margin: 10px 0;
       }
-      .spinnerCont {
+      .checkboxCont {
         label {
           width: 40%;
           float: left;
           .fa-info-circle {
             margin-left: 15px;
             cursor: pointer;
-          }
-        }
-        .ui-spinner {
-          width: 40%;
-          float: left;
-          border: none;
-          background: none;
-          margin: 10px 20% 10px 0;
-          input {
-            width: 50px;
-            height: 30px;
-            margin: 0 auto;
-            display: block;
-            position: relative;
-            float: none;
-            text-align: center;
-            &:focus {
-              outline: none;
-            }
-          }
-          .ui-spinner-down {
-            width: 50px;
-            height: 30px;
-            left: 20px;
-            display: block;
-            position: absolute;
-            float: left;
-            background: transparent;
-            border: 2px solid $glow-green;
-            border-radius: 0;
-            text-indent: 0;
-            cursor: pointer;
-            font-size: 20px;
-            &:before {
-              font-family: FontAwesome;
-              display: inline-block;
-              padding-right: 3px;
-              vertical-align: middle;
-              content: $fa-var-minus;
-              color: $glow-green;
-            }
-          }
-          .ui-spinner-up {
-            width: 50px;
-            height: 30px;
-            right: 20px;
-            display: block;
-            position: absolute;
-            float: right;
-            background: transparent;
-            border: 2px solid $glow-green;
-            border-radius: 0;
-            text-indent: 0;
-            cursor: pointer;
-            font-size: 20px;
-            &:before {
-              font-family: FontAwesome;
-              display: inline-block;
-              padding-right: 3px;
-              vertical-align: middle;
-              content: $fa-var-plus;
-              color: $glow-green;
-            }
           }
         }
         &.active {
@@ -96,6 +33,33 @@
             .fa-info-circle {
               display: none;
             }
+          }
+        }
+        .inputCont {
+          width: 50%;
+          height: 32px;
+          margin: 10px 0;
+          float: right;
+          input {
+            width: 80px;
+            height: 30px;
+            margin: 0 auto;
+            display: block;
+            position: relative;
+            float: left;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,0.3) 100%);
+            color: $glow-green-dark;
+            border: none;
+            border-radius: 5px;
+            &:focus {
+              outline: none;
+            }
+          }
+          input[type=checkbox] {
+            width: 50px;
+            float: left;
+            margin-left: 20px;
           }
         }
       }

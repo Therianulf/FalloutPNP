@@ -28,33 +28,54 @@
                         {{ csrf_field() }}
                         <div class="contentCont step1" data-title="Skills">
                             <ul>
-                                <li class="spinnerCont active cf">
+                                <li class="checkboxCont active cf">
                                     <label for="strength">Strength: <i class="fa fa-info-circle"></i></label>
-                                    <input id="strength" name="strength" data-role="spinner" value="0">
+                                    <div class="inputCont cf">
+                                        <input id="strength" value="0" disabled />
+                                        <input name="strength" type="checkbox" />
+                                    </div>
                                 </li>
-                                <li class="spinnerCont cf">
+                                <li class="checkboxCont cf">
                                     <label for="perception">Perception: <i class="fa fa-info-circle"></i></label>
-                                    <input id="perception" name="perception" data-role="spinner" value="0">
+                                    <div class="inputCont cf">
+                                        <input id="perception" value="0" disabled />
+                                        <input name="perception" type="checkbox" />
+                                    </div>
                                 </li>
-                                <li class="spinnerCont cf">
+                                <li class="checkboxCont cf">
                                     <label for="endurance">Endurance: <i class="fa fa-info-circle"></i></label>
-                                    <input id="endurance" name="endurance" data-role="spinner" value="0">
+                                    <div class="inputCont cf">
+                                        <input id="endurance" value="0" disabled />
+                                        <input name="endurance" type="checkbox" />
+                                    </div>
                                 </li>
-                                <li class="spinnerCont cf">
+                                <li class="checkboxCont cf">
                                     <label for="charisma">Charisma: <i class="fa fa-info-circle"></i></label>
-                                    <input id="charisma" name="charisma" data-role="spinner" value="0">
+                                    <div class="inputCont cf">
+                                        <input id="charisma" value="0" disabled />
+                                        <input name="charisma" type="checkbox" />
+                                    </div>
                                 </li>
-                                <li class="spinnerCont cf">
+                                <li class="checkboxCont cf">
                                     <label for="intelligence">Intelligence: <i class="fa fa-info-circle"></i></label>
-                                    <input id="intelligence" name="intelligence" data-role="spinner" value="0">
+                                    <div class="inputCont cf">
+                                        <input id="intelligence" value="0" disabled />
+                                        <input name="intelligence" type="checkbox" />
+                                    </div>
                                 </li>
-                                <li class="spinnerCont cf">
+                                <li class="checkboxCont cf">
                                     <label for="agility">Agility: <i class="fa fa-info-circle"></i></label>
-                                    <input id="agility" name="agility" data-role="spinner" value="0">
+                                    <div class="inputCont cf">
+                                        <input id="agility" value="0" disabled />
+                                        <input name="agility" type="checkbox" />
+                                    </div>
                                 </li>
-                                <li class="spinnerCont cf">
+                                <li class="checkboxCont cf">
                                     <label for="luck">Luck: <i class="fa fa-info-circle"></i></label>
-                                    <input id="luck" name="luck" data-role="spinner" value="0">
+                                    <div class="inputCont cf">
+                                        <input id="luck" value="0" disabled />
+                                        <input name="luck" type="checkbox" />
+                                    </div>
                                 </li>
                             </ul>
                         </div>

@@ -4,7 +4,6 @@
             activeIndex: 0,
             points: 0,
             maxPoints: 40,
-            submitDisabled: true,
             selectors: {}
         },
 
@@ -181,7 +180,9 @@
 
             var promise = widget._ajax(action, data, false);
 
-            promise.done(function(data){}).fail(function(){});
+            promise.done(function(data){
+                window.location = '/new_char_skills';
+            }).fail(function(){});
         }
 
     });
