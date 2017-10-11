@@ -168,6 +168,7 @@ $transparent: rgba(0,0,0,0);
           border-radius: 0;
           text-indent: 0;
           cursor: pointer;
+          font-size: 20px;
           &:before {
             font-family: FontAwesome;
             display: inline-block;
@@ -189,6 +190,7 @@ $transparent: rgba(0,0,0,0);
           border-radius: 0;
           text-indent: 0;
           cursor: pointer;
+          font-size: 20px;
           &:before {
             font-family: FontAwesome;
             display: inline-block;
@@ -249,10 +251,21 @@ $transparent: rgba(0,0,0,0);
       }
     }
     .specialCont {
-      .desc {
-        p {
-          font-size: 16px;
-          padding: 0 15px;
+      #statProgressBar {
+        border: none;
+        background: $black;
+        .ui-progressbar-value {
+          background: $glow-green-dark;
+          border: none;
+        }
+      }
+      .descCont {
+        padding-top: 10px;
+        .desc {
+          p {
+            font-size: 16px;
+            padding: 0 15px;
+          }
         }
       }
     }
@@ -285,6 +298,11 @@ $transparent: rgba(0,0,0,0);
           cursor: pointer;
           outline: 2px solid;
           background: rgba(0, 230, 103, 0.2);
+        }
+        &.disabled {
+          color: $glow-green-dark;
+          outline: none;
+          opacity: 0.6;
         }
       }
     }

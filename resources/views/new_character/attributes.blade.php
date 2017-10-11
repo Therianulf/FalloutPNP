@@ -27,7 +27,7 @@
                 <div class="mainContent">
                     <form method="post" action="/attributes_handler" >
                         {{ csrf_field() }}
-                        <div class="contentCont" data-title="Bio">
+                        <div class="contentCont step1" data-title="Bio">
                             <ul>
                                 <li>
                                     <label for="firstName">First Name:</label>
@@ -43,7 +43,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="contentCont hide" data-title="S.P.E.C.I.A.L. Attributes">
+                        <div class="contentCont step2 hide" data-title="S.P.E.C.I.A.L. Attributes">
                             <ul>
                                 <li class="spinnerCont active cf">
                                     <label for="strength">Strength: <i class="fa fa-info-circle"></i></label>
@@ -90,6 +90,9 @@
                             The possibilities are endless.</p>
                     </div>
                     <div class="specialCont contentCont hide">
+                        <div id="statProgressVal">
+                            <p>Skill Points: <span>0/40</span> Points Left</p>
+                        </div>
                         <div id="statProgressBar"></div>
                         <div class="descCont">
                             <div class="desc">
@@ -188,9 +191,9 @@
                 <div class="centerCont">
                     <div class="sep left"></div>
                     <div class="subMenu">
-                        <a class="active" href="#">Bio</a>
-                        <a href="#">S.P.E.C.I.A.L.</a>
-                        <a class="submit" href="#">Done</a>
+                        <a class="step1 active" href="#">Bio</a>
+                        <a class="step2 disabled" href="#">S.P.E.C.I.A.L.</a>
+                        <a class="submit disabled" href="#">Done</a>
                     </div>
                     <div class="sep right"></div>
                 </div>

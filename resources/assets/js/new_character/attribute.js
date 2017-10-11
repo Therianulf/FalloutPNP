@@ -14,14 +14,13 @@
                 pageTitleCont = self.find('.pgTitle .title'),
                 spinnerInputs = self.find("[data-role='spinner']"),
                 progressBar = self.find('#statProgressBar'),
-                form = self.find('form'),
-                submitBtn = self.find('.formSubmit');
+                progressVal = self.find('#statProgressVal span'),
+                form = self.find('form');
 
-            submitBtn.addClass('disabled');
             widget._setSelector('pageTitleCont', pageTitleCont);
             widget._setSelector('progressBar', progressBar);
+            widget._setSelector('progressVal', progressVal);
             widget._setSelector('form', form);
-            widget._setSelector('submitBtn', submitBtn);
 
             spinnerInputs.each(function(){
                 $(this).spinner({
@@ -37,10 +36,12 @@
                     var crntTrgt = $(event.currentTarget),
                         index = crntTrgt.index();
 
-                    if (crntTrgt.hasClass('submit')){
-
-                    }else{
-                        widget._toggleContent(index);
+                    if (!crntTrgt.hasClass('disabled')){
+                        if (crntTrgt.hasClass('submit')){
+                            widget._submitForm();
+                        }else{
+                            widget._toggleContent(index);
+                        }
                     }
                 },
                 'click.spinnerCont .fa-info-circle': function(event){
@@ -48,12 +49,12 @@
                         index = crntTrgt.parents('.spinnerCont').index();
 
                     widget._toggleSubContent(index);
-                }
-            });
-            submitBtn.on('click', function(event){
-                event.preventDefault();
-                if (!$(event.currentTarget).hasClass('disabled')){
-                    widget._submitForm();
+                },
+                'blur.step1 input': function(event){
+                    widget._checkStepOneInput();
+                },
+                'blur.step1 textarea': function(event){
+                    widget._checkStepOneInput();
                 }
             });
             widget._updateProgressBar();
@@ -76,6 +77,38 @@
                 cache: cache,
                 dataType: "json"
             });
+        },
+
+        _checkStepOneInput: function(){
+            var widget = this,
+                self = $(widget.element),
+                inputs = self.find('.step1 input'),
+                textarea = self.find('.step1 textarea'),
+                step2Link = self.find('.subMenu .step2'),
+                regexTest = /^.{3,}$/,
+                enable = true;
+
+            $.each(inputs, function( index, input ){
+                var val = $(input).val(),
+                    re = new RegExp(regexTest);
+                if (!re.test(val)){
+                    enable = false;
+                }
+            });
+
+            if (enable){
+                var val = $(textarea).val(),
+                    re = new RegExp(regexTest);
+                if (!re.test(val)){
+                    enable = false;
+                }
+            }
+
+            if (enable){
+                step2Link.removeClass('disabled');
+            }else{
+                step2Link.addClass('disabled');
+            }
         },
 
         _toggleContent: function(index) {
@@ -113,9 +146,11 @@
 
         _spinnerUpdate: function() {
             var widget = this,
+                self = $(widget.element),
                 points = 0,
                 spinners = $(widget.element).find("[data-role='spinner']"),
-                submitBtn = widget.options.selectors.submitBtn;
+                progressVal = widget.options.selectors.progressVal,
+                submitBtn = self.find('.subMenu .submit');
 
             spinners.each(function(){
                 var value = parseInt($(this).val());
@@ -124,6 +159,9 @@
             });
 
             widget._setOption('points', points);
+
+            var valString = points + "/" + widget.options.maxPoints;
+            progressVal.html(valString);
 
             if (!(points > widget.options.maxPoints)){
                 widget._updateProgressBar();
