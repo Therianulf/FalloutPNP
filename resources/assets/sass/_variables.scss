@@ -35,3 +35,18 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+// Custom Pipboy vars/func
+$black: #000000;
+$glow-green: #00e667;
+$glow-green-dark: #00b350;
+$dark-gradient-green: #041607;
+$light-gradient-green: #11581E;
+$transparent: rgba(0,0,0,0);
+
+@mixin fade-border ($direction: top, $float: left){
+  background-image: linear-gradient(to $direction, $glow-green, $transparent);
+  background-repeat: no-repeat;
+  background-size: 3px 5vh;
+  background-position: $float;
+}

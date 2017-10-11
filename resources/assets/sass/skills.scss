@@ -1,4 +1,4 @@
-.attributesPage {
+.skillsPage {
   .contentSection {
     padding: 0 15px;
     ul {
@@ -16,22 +16,6 @@
       label {
         width: 100%;
         margin: 10px 0;
-      }
-      input, textarea {
-        width: 100%;
-        max-width: 100%;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,0.3) 100%);
-        color: $glow-green-dark;
-        border: none;
-        border-radius: 5px;
-        &:focus {
-          outline: none;
-        }
-      }
-      textarea {
-        min-width: 100%;
-        min-height: 110px;
-        max-height: 110px;
       }
       .spinnerCont {
         label {
@@ -144,25 +128,7 @@
           text-transform: uppercase;
         }
       }
-      .bioCont {
-        .titleCont {
-          margin-top: 20px;
-        }
-        p {
-          margin-top: 20px;
-          text-align: left;
-          padding: 0 15px;
-        }
-      }
-      .specialCont {
-        #statProgressBar {
-          border: none;
-          background: $black;
-          .ui-progressbar-value {
-            background: $glow-green-dark;
-            border: none;
-          }
-        }
+      .skillCont {
         .descCont {
           padding-top: 10px;
           .desc {

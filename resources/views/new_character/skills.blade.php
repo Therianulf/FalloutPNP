@@ -1,6 +1,6 @@
 @extends('layouts.new_char_layout')
 @section('content')
-    <div class="skillsPage" data-role="skillsPage">
+    <div class="skillsPage pageCont" data-role="skillsPage">
         <div id="overlay"></div>
         <div class="pageContent">
             <div class="header">

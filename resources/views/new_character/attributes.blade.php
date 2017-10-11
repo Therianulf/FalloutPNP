@@ -1,7 +1,7 @@
 @extends('layouts.new_char_layout')
 
 @section('content')
-    <div class="attributesPage" data-role="attributesPage">
+    <div class="attributesPage pageCont" data-role="attributesPage">
         <div id="overlay"></div>
         <div class="pageContent">
             <div class="header">
