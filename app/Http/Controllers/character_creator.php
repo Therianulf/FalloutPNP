@@ -80,6 +80,11 @@ class character_creator extends Controller
        return view('new_character.skills',['character'=>$new_character,'stats'=>$new_character_stats,'base_skill_array'=>character_skills::determine_base_skills($new_character->id)]);
     }
 
+    public function character_skills(Request $request){
+        return view('new_character.skills' , ['user' => $request->user()]);
+
+    }
+
     public function character_skills_handler(Request $request){
 
 
