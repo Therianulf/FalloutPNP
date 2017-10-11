@@ -16,7 +16,7 @@
                 progressBar = self.find('#statProgressBar'),
                 progressVal = self.find('#statProgressVal span'),
                 form = self.find('form');
-
+          
             widget._setSelector('pageTitleCont', pageTitleCont);
             widget._setSelector('progressBar', progressBar);
             widget._setSelector('progressVal', progressVal);
