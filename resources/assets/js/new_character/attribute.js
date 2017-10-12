@@ -212,7 +212,7 @@
                         var role = $(value).data('role');
                         $(value)[role]();
                     });
-                }, 600);
+                }, 20);
             }).fail(function(){});
         }
 
