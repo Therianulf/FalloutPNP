@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\character;
 use App\character_ammo;
+use App\character_stats;
 use App\character_weapons;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -88,7 +89,9 @@ class admin extends Controller
     public function damage_character(Request $request){
         $group_id = $request->input('group_id');
         $characters = character::where('group_id',$group_id)->get();
-        $damage = 0;
+        $character_stats = character_stats::find($request->character_id);
+        $character_stats->hit_points = $character_stats->hit_points - $request->input('damage');
+        $character_stats->save();
         return view('admin.admin',['characters'=>$characters,'group_id'=>$group_id]);
     }
 }

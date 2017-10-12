@@ -292,10 +292,11 @@
             @endforeach
         </table>
     @endif
-
+    <h3>to hit</h3>
     @if(isset($to_hit))
         <h1 name="to_hit">{{$to_hit}}</h1>
     @endif
+
     <form method="post" name="to_hit_cal" action="{{url('to_hit')}}">
         {{csrf_field()}}
         <input type="hidden" name="group_id" value="{{$group_id}}"/>
