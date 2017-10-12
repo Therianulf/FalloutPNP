@@ -38,8 +38,19 @@
                         changeType = (crntTrgt.prop("checked")) ? 'inc' : 'dec';
 
                     widget._checkboxUpdate(crntTrgt, changeType);
+                },
+                'endSibLife': function(){
+                    var pageChildren = self.siblings('.pageCont');
+
+                    $.each(pageChildren, function(key, value){
+                        $(value).trigger('endLife');
+                    });
+                },
+                'endLife': function(){
+                    $(self).remove();
                 }
             });
+            $(widget.element).trigger('endSibLife');
         },
 
         _setOption: function( key, value ) {
@@ -114,7 +125,9 @@
 
             var promise = widget._ajax(action, data, false);
 
-            promise.done(function(data){}).fail(function(){});
+            promise.done(function(data){
+                window.location = '/home';
+            }).fail(function(){});
         }
 
     });
