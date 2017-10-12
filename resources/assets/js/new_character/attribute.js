@@ -54,9 +54,22 @@
                 },
                 'blur.step1 textarea': function(event){
                     widget._checkStepOneInput();
+                },
+                'endSibLife': function(){
+                    var pageChildren = self.siblings('.pageCont');
+
+                    $.each(pageChildren, function(key, value){
+                        $(value).trigger('endLife');
+                    });
+                },
+                'endLife': function(){
+                    $(self).remove();
                 }
+
             });
+            widget._calcPoints();
             widget._updateProgressBar();
+            $(widget.element).trigger('endSibLife');
         },
 
         _setOption: function( key, value ) {
@@ -143,13 +156,12 @@
             progressBar.progressbar({value: points});
         },
 
-        _spinnerUpdate: function() {
+        _calcPoints: function() {
             var widget = this,
                 self = $(widget.element),
                 points = 0,
-                spinners = $(widget.element).find("[data-role='spinner']"),
                 progressVal = widget.options.selectors.progressVal,
-                submitBtn = self.find('.subMenu .submit');
+                spinners = self.find("[data-role='spinner']");
 
             spinners.each(function(){
                 var value = parseInt($(this).val());
@@ -159,21 +171,30 @@
 
             widget._setOption('points', points);
 
-            var valString = points + "/" + widget.options.maxPoints;
+            var valString = widget.options.points + "/" + widget.options.maxPoints;
             progressVal.html(valString);
+        },
 
-            if (!(points > widget.options.maxPoints)){
+        _spinnerUpdate: function() {
+            var widget = this,
+                self = $(widget.element),
+                submitBtn = self.find('.subMenu .submit');
+
+            widget._calcPoints();
+
+            if (!(widget.options.points > widget.options.maxPoints)){
                 widget._updateProgressBar();
             }
-            if (points === widget.options.maxPoints){
+            if (widget.options.points === widget.options.maxPoints){
                 submitBtn.removeClass('disabled');
             }else{
                 submitBtn.addClass('disabled');
             }
         },
 
-      /*  _submitForm: function(){
+        _submitForm: function(){
             var widget = this,
+                self = $(widget.element),
                 form = widget.options.selectors.form,
                 action = $(form).attr('action');
                 data = form.serialize();
@@ -183,9 +204,17 @@
             var promise = widget._ajax(action, data, false);
 
             promise.done(function(data){
-                window.location = '/new_char_skills';
+                $('#app').append($.parseJSON(data));
+                setTimeout(function(){
+                    var pageChildren = self.siblings('.pageCont');
+
+                    $.each(pageChildren, function(key, value){
+                        var role = $(value).data('role');
+                        $(value)[role]();
+                    });
+                }, 20);
             }).fail(function(){});
-        }*/
+        }
 
     });
     $(document).ready(function(){

@@ -75,8 +75,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <button type="submit">submit</button>
-
                     </form>
                 </div>
                 <div class="subContent">
@@ -195,7 +193,7 @@
                     <div class="subMenu">
                         <a class="step1 active" href="#">Bio</a>
                         <a class="step2 disabled" href="#">S.P.E.C.I.A.L.</a>
-                        {{--<a class="submit disabled" href="#">Done</a>--}}
+                        <a class="submit disabled" href="#">Done</a>
                     </div>
                     <div class="sep right"></div>
                 </div>
