@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    to hit calculator
 
+    <a href="{{url('admin?group_id=1')}}">hard coded reload admin page</a>
 
     <h3>char weapons and stats</h3>
     @if(isset($characters))
@@ -177,7 +177,108 @@
                     @endforeach
                 @endforeach
             </table>
+        <h3>char armor</h3>
+        <table name="character_table" class="table table-bordered">
+            <tr>
+                <th>
+                    Player Name
+                </th>
+                <th>
+                    Player id
+                </th>
+                <th>
+                    armor id
+                </th>
+                <th>
+                    armor name
+                </th>
+                <th>
+                    armor condition
+                </th>
+                <th>
+                    armor class
+                </th>
+                <th>
+                    damage threshold
+                </th>
+                <th>
+                    damage resist
+                </th>
+                <th>
+                    gas resist
+                </th>
+                <th>
+                    laser resist
+                </th>
+                <th>
+                    fire resist
+                </th>
+                <th>
+                    plasma resist
+                </th>
+                <th>
+                    explosive resist
+                </th>
+                <th>
+                    body armor
+                </th>
+                <th>
+                    head armor
+                </th>
 
+            </tr>
+            @foreach($characters as $character)
+                @foreach($character->armor as $armor)
+                    <tr>
+                        <td>
+                            {{$character->first_name . " " . $character->last_name}}
+                        </td>
+                        <td>
+                            {{$character->id}}
+                        </td>
+                        <td>
+                            {{$armor->id}}
+                        </td>
+                        <td>
+                            {{$armor->armor_name}}
+                        </td>
+                        <td>
+                            {{$armor->armor_condition}}
+                        </td>
+                        <td>
+                            {{$armor->armor_class}}
+                        </td>
+                        <td>
+                            {{$armor->damage_threshold}}
+                        </td>
+                        <td>
+                            {{$armor->damage_resistance}}
+                        </td>
+                        <td>
+                            {{$armor->gas_resistance}}
+                        </td>
+                        <td>
+                            {{$armor->laser_resistance}}
+                        </td>
+                        <td>
+                            {{$armor->fire_resistance}}
+                        </td>
+                        <td>
+                            {{$armor->plasma_resistance}}
+                        </td>
+                        <td>
+                            {{$armor->explosive_resistance}}
+                        </td>
+                        <td>
+                            {{$armor->is_body}}
+                        </td>
+                        <td>
+                            {{$armor->is_helmet}}
+                        </td>
+                    </tr>
+                @endforeach
+            @endforeach
+        </table>
     @endif
 
     @if(isset($to_hit))
@@ -258,10 +359,11 @@
         <input type="number" name="weapon_id" value="0">
         <button type="submit">Reload Ammo</button>
     </form>
+
+    <h3>damage</h3>
     @if(isset($damage))
         <h1 name="damage">{{$damage}}</h1>
     @endif
-    <h3>damage</h3>
     <form method="post" action="{{url('calculate_damage')}}">
         {{csrf_field()}}
         <input type="hidden" name="group_id" value="{{$group_id}}"/>
