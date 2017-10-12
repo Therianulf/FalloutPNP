@@ -1,0 +1,119 @@
+.cf:before, .cf:after {
+  content: "";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+.pageCont {
+  font-family: 'Inconsolata', Helvetica, sans-serif;
+  height:100%;
+  position: relative;
+  font-size: 1.6vw;
+  padding: 20px 20px;
+  color: $glow-green;
+  background-color: $black;
+  background-image:
+          radial-gradient(
+                          $light-gradient-green,
+                          $dark-gradient-green
+          );
+}
+#overlay {
+  background: -webkit-repeating-linear-gradient(-90deg, rgba(0,0,0,0) 0, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+  background: -moz-repeating-linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+  background: repeating-linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0, 0, 0, 0.3) 50%, rgba(0,0,0,0) 100%);
+  -webkit-background-size: auto 4px;
+  background-size: auto 4px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.pageContent {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  .pgTitle {
+    flex: 3;
+    display: flex;
+    flex-flow: row nowrap;
+    .sep {
+      border-top: 2px solid;
+      flex: 5;
+      &.left{
+        @include fade-border(bottom, left);
+      }
+      &.right{
+        @include fade-border(bottom, right);
+      }
+    }
+    .title {
+      font-size: 1.3em;
+      letter-spacing: 6px;
+      margin-top: -2vh;
+      text-align: center;
+      flex-grow: 1;
+      text-transform: uppercase;
+    }
+  }
+  .statCont {
+    flex: 1;
+    margin: 0 10px;
+    padding: 0 10px 0 0;
+    border-top: 2px solid;
+    @include fade-border(bottom, right);
+    .label{
+      float: left;
+      text-transform: uppercase;
+    }
+    .value {
+      float: right;
+    }
+  }
+}
+.footer {
+  width: 100%;
+  .centerCont {
+    display: flex;
+    flex-flow: row nowrap;
+    .sep {
+      flex: 4;
+      border-bottom: 2px solid;
+      margin-bottom: 15px;
+      &.left{
+        @include fade-border(top, left);
+      }
+      &.right{
+        @include fade-border(top, right);
+      }
+    }
+    .subMenu {
+      a {
+        color: $glow-green;
+        text-decoration: none;
+        padding: 0 15px;
+        margin-top: 15px;
+        text-transform: uppercase;
+        &:hover, &.active {
+          cursor: pointer;
+          outline: 2px solid;
+          background: rgba(0, 230, 103, 0.2);
+        }
+        &.disabled {
+          color: $glow-green-dark;
+          outline: none;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}

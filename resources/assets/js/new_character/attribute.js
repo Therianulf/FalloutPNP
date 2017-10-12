@@ -4,7 +4,6 @@
             activeIndex: 0,
             points: 0,
             maxPoints: 40,
-            submitDisabled: true,
             selectors: {}
         },
 
@@ -173,16 +172,20 @@
             }
         },
 
-        _submitForm: function(){
+      /*  _submitForm: function(){
             var widget = this,
                 form = widget.options.selectors.form,
                 action = $(form).attr('action');
                 data = form.serialize();
 
+
+
             var promise = widget._ajax(action, data, false);
 
-            promise.done(function(data){}).fail(function(){});
-        }
+            promise.done(function(data){
+                window.location = '/new_char_skills';
+            }).fail(function(){});
+        }*/
 
     });
     $(document).ready(function(){

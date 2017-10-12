@@ -8,7 +8,22 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
-                        This is fallout!
+                        This is falloutpnp!
+                        <br/>
+                        <a href="{{url('new_char_name')}}">New Character</a>
+                        <br/>
+                        Play existing Character
+                        <br/>
+                        <form method="post" action="{{url('selected_character')}}">
+                            {{ csrf_field() }}
+                        <select name="character_id">
+                            @foreach($characters as $character)
+                            <option value="{{$character->id}}">{{$character->first_name}} {{$character->last_name}}</option>
+                            @endforeach
+                        </select>
+                            <button type="submit">Pick Character</button>
+                        </form>
+
                     </div>
                 </div>
             </div>
