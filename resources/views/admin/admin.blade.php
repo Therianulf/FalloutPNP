@@ -4,12 +4,12 @@
     to hit calculator
 
 
-    character stats
+    <h3>char weapons and stats</h3>
     @if(isset($characters))
         <table name="character_table" class="table table-bordered">
             <tr>
                 <th>
-                    Player Name
+                     Name
                 </th>
                 <th>
                     Player id
@@ -18,7 +18,13 @@
                     Weapon id
                 </th>
                 <th>
-                    player small gun
+                     small guns
+                </th>
+                <th>
+                     big guns
+                </th>
+                <th>
+                     energy weapons
                 </th>
                 <th>
                     player range
@@ -64,6 +70,12 @@
                             {{$character->skills->small_guns}}
                         </td>
                         <td>
+                            {{$character->skills->big_guns}}
+                        </td>
+                        <td>
+                            {{$character->skills->energy_weapons}}
+                        </td>
+                        <td>
                             {{$character->stats->perception + ($character->stats->perception - 1) }}
                         </td>
                         <td>
@@ -94,6 +106,77 @@
                 @endforeach
             @endforeach
         </table>
+        <h3>char ammo</h3>
+            <table name="character_table" class="table table-bordered">
+                <tr>
+                    <th>
+                        Player Name
+                    </th>
+                    <th>
+                        Player id
+                    </th>
+                    <th>
+                        ammo id
+                    </th>
+                    <th>
+                        ammo damage mod
+                    </th>
+                    <th>
+                        ammo DT penetration
+                    </th>
+                    <th>
+                        ammo DR penetration
+                    </th>
+                    <th>
+                        ammo class
+                    </th>
+                    <th>
+                        ammo type
+                    </th>
+                    <th>
+                        ammo count
+                    </th>
+                    <th>
+                        jam percentage
+                    </th>
+                </tr>
+                @foreach($characters as $character)
+                    @foreach($character->ammo as $ammo)
+                        <tr>
+                            <td>
+                                {{$character->first_name . " " . $character->last_name}}
+                            </td>
+                            <td>
+                                {{$character->id}}
+                            </td>
+                            <td>
+                                {{$ammo->id}}
+                            </td>
+                            <td>
+                                {{$ammo->damage_mod}}
+                            </td>
+                            <td>
+                                {{$ammo->damage_threshold_penetration}}
+                            </td>
+                            <td>
+                                {{$ammo->damage_resistance_penetration}}
+                            </td>
+                            <td>
+                                {{$ammo->ammo_class}}
+                            </td>
+                            <td>
+                                {{$ammo->ammo_type}}
+                            </td>
+                            <td>
+                                {{$ammo->ammo_count}}
+                            </td>
+                            <td>
+                                {{100 - ($ammo->jam_percentage * 100)}} +
+                            </td>
+                        </tr>
+                    @endforeach
+                @endforeach
+            </table>
 
     @endif
 
@@ -167,6 +250,13 @@
         </select>
         <button type="submit">take ammo</button>
     </form>
-
+    <h3>reload ammo</h3>
+    <form method="post" action="{{url('reload_ammo')}}">
+        {{csrf_field()}}
+        <input type="hidden" name="group_id" value="{{$group_id}}"/>
+        <label for="weapon_id">weapon id</label>
+        <input type="number" name="weapon_id" value="0">
+        <button type="submit">Reload Ammo</button>
+    </form>
 
 @endsection

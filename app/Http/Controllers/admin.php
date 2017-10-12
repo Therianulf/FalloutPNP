@@ -51,4 +51,14 @@ class admin extends Controller
 
         return view('admin.admin',['characters'=>$characters,'group_id'=>$group_id]);
     }
+
+    public function reload_ammo(Request $request){
+        $group_id = $request->input('group_id');
+        $weapon_id = $request->input('weapon_id');
+        $weapon = character_weapons::find($weapon_id);
+        $weapon->ammo_loaded = $weapon->ammo_capacity;
+        $weapon->save();
+        $characters = character::where('group_id',$group_id)->get();
+        return view('admin.admin',['characters'=>$characters,'group_id'=>$group_id]);
+    }
 }
