@@ -258,5 +258,32 @@
         <input type="number" name="weapon_id" value="0">
         <button type="submit">Reload Ammo</button>
     </form>
+    @if(isset($damage))
+        <h1 name="damage">{{$damage}}</h1>
+    @endif
+    <h3>damage</h3>
+    <form method="post" action="{{url('calculate_damage')}}">
+        {{csrf_field()}}
+        <input type="hidden" name="group_id" value="{{$group_id}}"/>
+
+        <label for="weapon_id">Base Damage</label>
+        <input type="number" name="base_damage" value="0">
+
+        <button type="submit">Calculate Damage</button>
+    </form>
+
+    <h3>do damage to character</h3>
+    <form method="post" action="{{url('damage_character')}}">
+        {{csrf_field()}}
+        <input type="hidden" name="group_id" value="{{$group_id}}"/>
+
+        <label for="character_id">character id</label>
+        <input type="number" name="character_id" value="0">
+        <label for="damage">character id</label>
+        <input type="number" name="damage" value="0">
+
+
+        <button type="submit">damage character</button>
+    </form>
 
 @endsection

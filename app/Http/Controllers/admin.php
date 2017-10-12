@@ -61,4 +61,18 @@ class admin extends Controller
         $characters = character::where('group_id',$group_id)->get();
         return view('admin.admin',['characters'=>$characters,'group_id'=>$group_id]);
     }
+
+    public function calculate_damage(Request $request){
+        $group_id = $request->input('group_id');
+        $characters = character::where('group_id',$group_id)->get();
+        $damage = 0;
+        return view('admin.admin',['characters'=>$characters,'group_id'=>$group_id,'damage'=>$damage]);
+    }
+
+    public function damage_character(Request $request){
+        $group_id = $request->input('group_id');
+        $characters = character::where('group_id',$group_id)->get();
+        $damage = 0;
+        return view('admin.admin',['characters'=>$characters,'group_id'=>$group_id,'damage'=>$damage]);
+    }
 }

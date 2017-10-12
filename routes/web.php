@@ -31,5 +31,7 @@ Route::get('/admin','admin@admin')->middleware('auth','is_admin');
 Route::post('/to_hit','admin@to_hit')->middleware('auth','is_admin');
 Route::post('/remove_ammo','admin@remove_ammo')->middleware('auth','is_admin');
 Route::post('/reload_ammo','admin@reload_ammo')->middleware('auth','is_admin');
+Route::post('/calculate_damage','admin@calculate_damage')->middleware('auth','is_admin');
+Route::post('/damage_character','admin@damage_character')->middleware('auth','is_admin');
 Auth::routes();
 
