@@ -6,6 +6,31 @@ use Illuminate\Database\Eloquent\Model;
 
 class character_skills extends Model
 {
+    protected $fillable = [
+        'id'
+        ,'small_guns'
+        ,'big_guns'
+        ,'energy_weapons'
+        ,'unarmed'
+        ,'melee_weapons'
+        ,'throwing'
+        ,'first_aid'
+        ,'doctor'
+        ,'sneak'
+        ,'lockpick'
+        ,'steal'
+        ,'traps'
+        ,'science'
+        ,'repair'
+        ,'pilot'
+        ,'speech'
+        ,'barter'
+        ,'outdoorsman'
+        ,'first_tag'
+        ,'second_tag'
+        ,'third_tag'
+    ];
+
     public static function determine_base_skills($character_id){
         $character_stats = character_stats::find($character_id);
         return [

@@ -1,0 +1,108 @@
+.skillsPage {
+  .contentSection {
+    padding: 0 15px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    .mainContent {
+      width: 57%;
+      float: left;
+      label {
+        width: 100%;
+        margin: 10px 0;
+      }
+      .checkboxCont {
+        label {
+          width: 40%;
+          float: left;
+          .fa-info-circle {
+            margin-left: 15px;
+            cursor: pointer;
+          }
+        }
+        &.active {
+          label {
+            font-weight: bold;
+            color: $glow-green-dark;
+            .fa-info-circle {
+              display: none;
+            }
+          }
+        }
+        .inputCont {
+          width: 50%;
+          height: 32px;
+          margin: 10px 0;
+          float: right;
+          input {
+            width: 80px;
+            height: 30px;
+            margin: 0 auto;
+            display: block;
+            position: relative;
+            float: left;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,0.3) 100%);
+            color: $glow-green-dark;
+            border: none;
+            border-radius: 5px;
+            &:focus {
+              outline: none;
+            }
+          }
+          input[type=checkbox] {
+            width: 50px;
+            float: left;
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+    .subContent {
+      width: 40%;
+      margin-left: 3%;
+      float:left;
+      .titleCont {
+        flex: 3;
+        display: flex;
+        flex-flow: row nowrap;
+        margin-top: 10px;
+        .sep {
+          border-top: 2px solid;
+          flex: 5;
+          &.left{
+            @include fade-border(bottom, left);
+          }
+          &.right{
+            @include fade-border(bottom, right);
+          }
+        }
+        .title {
+          font-size: 1.3em;
+          letter-spacing: 6px;
+          margin-top: -2vh;
+          text-align: center;
+          flex-grow: 1;
+          text-transform: uppercase;
+        }
+      }
+      .skillCont {
+        .descCont {
+          padding-top: 10px;
+          .desc {
+            p {
+              font-size: 16px;
+              padding: 0 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

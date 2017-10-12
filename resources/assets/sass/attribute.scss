@@ -1,290 +1,176 @@
-$black: #000000;
-$glow-green: #00e667;
-$glow-green-dark: #00b350;
-$dark-gradient-green: #041607;
-$light-gradient-green: #11581E;
-$transparent: rgba(0,0,0,0);
-
-@mixin fade-border ($direction: top, $float: left){
-  background-image: linear-gradient(to $direction, $glow-green, $transparent);
-  background-repeat: no-repeat;
-  background-size: 3px 5vh;
-  background-position: $float;
-}
-
-.cf:before, .cf:after {
-  content: "";
-  display: table;
-}
-.cf:after {
-  clear: both;
-}
-
 .attributesPage {
-  font-family: 'Inconsolata', Helvetica, sans-serif;
-  height:100%;
-  position: relative;
-  font-size: 1.6vw;
-  padding: 20px 20px;
-  color: $glow-green;
-  background-color: $black;
-  background-image:
-          radial-gradient(
-          $light-gradient-green,
-          $dark-gradient-green
-          );
-}
-#overlay {
-  background: -webkit-repeating-linear-gradient(-90deg, rgba(0,0,0,0) 0, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
-  background: -moz-repeating-linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
-  background: repeating-linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0, 0, 0, 0.3) 50%, rgba(0,0,0,0) 100%);
-  -webkit-background-size: auto 4px;
-  background-size: auto 4px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 5;
-}
-.pageContent {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-.header {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  .pgTitle {
-    flex: 3;
-    display: flex;
-    flex-flow: row nowrap;
-    .sep {
-      border-top: 2px solid;
-      flex: 5;
-      &.left{
-        @include fade-border(bottom, left);
-      }
-      &.right{
-        @include fade-border(bottom, right);
-      }
-    }
-    .title {
-      font-size: 1.3em;
-      letter-spacing: 6px;
-      margin-top: -2vh;
-      text-align: center;
-      flex-grow: 1;
-      text-transform: uppercase;
-    }
-  }
-  .statCont {
-    flex: 1;
-    margin: 0 10px;
-    padding: 0 10px 0 0;
-    border-top: 2px solid;
-    @include fade-border(bottom, right);
-    .label{
-      float: left;
-      text-transform: uppercase;
-    }
-    .value {
-      float: right;
-    }
-  }
-}
-.contentSection {
-  padding: 0 15px;
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    li {
+  .contentSection {
+    padding: 0 15px;
+    ul {
       margin: 0;
       padding: 0;
-    }
-  }
-  .mainContent {
-    width: 57%;
-    float: left;
-    label {
-      width: 100%;
-      margin: 10px 0;
-    }
-    input, textarea {
-      width: 100%;
-      max-width: 100%;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,0.3) 100%);
-      color: $glow-green-dark;
-      border: none;
-      border-radius: 5px;
-      &:focus {
-        outline: none;
+      list-style: none;
+      li {
+        margin: 0;
+        padding: 0;
       }
     }
-    textarea {
-      min-width: 100%;
-      min-height: 110px;
-      max-height: 110px;
-    }
-    .spinnerCont {
+    .mainContent {
+      width: 57%;
+      float: left;
       label {
-        width: 40%;
-        float: left;
-        .fa-info-circle {
-          margin-left: 15px;
-          cursor: pointer;
-        }
+        width: 100%;
+        margin: 10px 0;
       }
-      .ui-spinner {
-        width: 40%;
-        float: left;
+      input, textarea {
+        width: 100%;
+        max-width: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,0.3) 100%);
+        color: $glow-green-dark;
         border: none;
-        background: none;
-        margin: 10px 20% 10px 0;
-        input {
-          width: 50px;
-          height: 30px;
-          margin: 0 auto;
-          display: block;
-          position: relative;
-          float: none;
-          text-align: center;
-          &:focus {
-            outline: none;
-          }
-        }
-        .ui-spinner-down {
-          width: 50px;
-          height: 30px;
-          left: 20px;
-          display: block;
-          position: absolute;
-          float: left;
-          background: transparent;
-          border: 2px solid $glow-green;
-          border-radius: 0;
-          text-indent: 0;
-          cursor: pointer;
-          &:before {
-            font-family: FontAwesome;
-            display: inline-block;
-            padding-right: 3px;
-            vertical-align: middle;
-            content: $fa-var-minus;
-            color: $glow-green;
-          }
-        }
-        .ui-spinner-up {
-          width: 50px;
-          height: 30px;
-          right: 20px;
-          display: block;
-          position: absolute;
-          float: right;
-          background: transparent;
-          border: 2px solid $glow-green;
-          border-radius: 0;
-          text-indent: 0;
-          cursor: pointer;
-          &:before {
-            font-family: FontAwesome;
-            display: inline-block;
-            padding-right: 3px;
-            vertical-align: middle;
-            content: $fa-var-plus;
-            color: $glow-green;
-          }
+        border-radius: 5px;
+        &:focus {
+          outline: none;
         }
       }
-      &.active {
+      textarea {
+        min-width: 100%;
+        min-height: 110px;
+        max-height: 110px;
+      }
+      .spinnerCont {
         label {
-          font-weight: bold;
-          color: $glow-green-dark;
+          width: 40%;
+          float: left;
           .fa-info-circle {
-            display: none;
+            margin-left: 15px;
+            cursor: pointer;
+          }
+        }
+        .ui-spinner {
+          width: 40%;
+          float: left;
+          border: none;
+          background: none;
+          margin: 10px 20% 10px 0;
+          input {
+            width: 50px;
+            height: 30px;
+            margin: 0 auto;
+            display: block;
+            position: relative;
+            float: none;
+            text-align: center;
+            &:focus {
+              outline: none;
+            }
+          }
+          .ui-spinner-down {
+            width: 50px;
+            height: 30px;
+            left: 20px;
+            display: block;
+            position: absolute;
+            float: left;
+            background: transparent;
+            border: 2px solid $glow-green;
+            border-radius: 0;
+            text-indent: 0;
+            cursor: pointer;
+            font-size: 20px;
+            &:before {
+              font-family: FontAwesome;
+              display: inline-block;
+              padding-right: 3px;
+              vertical-align: middle;
+              content: $fa-var-minus;
+              color: $glow-green;
+            }
+          }
+          .ui-spinner-up {
+            width: 50px;
+            height: 30px;
+            right: 20px;
+            display: block;
+            position: absolute;
+            float: right;
+            background: transparent;
+            border: 2px solid $glow-green;
+            border-radius: 0;
+            text-indent: 0;
+            cursor: pointer;
+            font-size: 20px;
+            &:before {
+              font-family: FontAwesome;
+              display: inline-block;
+              padding-right: 3px;
+              vertical-align: middle;
+              content: $fa-var-plus;
+              color: $glow-green;
+            }
+          }
+        }
+        &.active {
+          label {
+            font-weight: bold;
+            color: $glow-green-dark;
+            .fa-info-circle {
+              display: none;
+            }
           }
         }
       }
     }
-  }
-  .subContent {
-    width: 40%;
-    margin-left: 3%;
-    float:left;
-    .titleCont {
-      flex: 3;
-      display: flex;
-      flex-flow: row nowrap;
-      margin-top: 10px;
-      .sep {
-        border-top: 2px solid;
-        flex: 5;
-        &.left{
-          @include fade-border(bottom, left);
-        }
-        &.right{
-          @include fade-border(bottom, right);
-        }
-      }
-      .title {
-        font-size: 1.3em;
-        letter-spacing: 6px;
-        margin-top: -2vh;
-        text-align: center;
-        flex-grow: 1;
-        text-transform: uppercase;
-      }
-    }
-    .bioCont {
+    .subContent {
+      width: 40%;
+      margin-left: 3%;
+      float:left;
       .titleCont {
-        margin-top: 20px;
+        flex: 3;
+        display: flex;
+        flex-flow: row nowrap;
+        margin-top: 10px;
+        .sep {
+          border-top: 2px solid;
+          flex: 5;
+          &.left{
+            @include fade-border(bottom, left);
+          }
+          &.right{
+            @include fade-border(bottom, right);
+          }
+        }
+        .title {
+          font-size: 1.3em;
+          letter-spacing: 6px;
+          margin-top: -2vh;
+          text-align: center;
+          flex-grow: 1;
+          text-transform: uppercase;
+        }
       }
-      p {
-        margin-top: 20px;
-        text-align: left;
-        padding: 0 15px;
-      }
-    }
-    .specialCont {
-      .desc {
+      .bioCont {
+        .titleCont {
+          margin-top: 20px;
+        }
         p {
-          font-size: 16px;
+          margin-top: 20px;
+          text-align: left;
           padding: 0 15px;
         }
       }
-    }
-  }
-}
-.footer {
-  width: 100%;
-  .centerCont {
-    display: flex;
-    flex-flow: row nowrap;
-    .sep {
-      flex: 4;
-      border-bottom: 2px solid;
-      margin-bottom: 15px;
-      &.left{
-        @include fade-border(top, left);
-      }
-      &.right{
-        @include fade-border(top, right);
-      }
-    }
-    .subMenu {
-      a {
-        color: $glow-green;
-        text-decoration: none;
-        padding: 0 15px;
-        margin-top: 15px;
-        text-transform: uppercase;
-        &:hover, &.active {
-          cursor: pointer;
-          outline: 2px solid;
-          background: rgba(0, 230, 103, 0.2);
+      .specialCont {
+        #statProgressBar {
+          border: none;
+          background: $black;
+          .ui-progressbar-value {
+            background: $glow-green-dark;
+            border: none;
+          }
+        }
+        .descCont {
+          padding-top: 10px;
+          .desc {
+            p {
+              font-size: 16px;
+              padding: 0 15px;
+            }
+          }
         }
       }
     }
