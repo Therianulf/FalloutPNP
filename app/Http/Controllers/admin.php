@@ -65,7 +65,23 @@ class admin extends Controller
     public function calculate_damage(Request $request){
         $group_id = $request->input('group_id');
         $characters = character::where('group_id',$group_id)->get();
-        $damage = 0;
+        $base_damage_roll = $request->input('base_damage');
+        $damage_threshold = $request->input('damage_threshold');
+        $damage_resist = $request->input('damage_resistance');
+        $weapon_mod = $request->input('weapon_modifier');
+        $ammo_mod = $request->input('ammo_modifier');
+        $ammo_dt_pen = $request->input('ammo_dt_pen');
+        $ammo_dr_pen = $request->input('ammo_dr_pen');
+        $damage_threshold = $damage_threshold - $ammo_dt_pen;
+        $damage_threshold = ($damage_threshold < 0 ) ? 0 : $damage_threshold;
+        $damage_resist = $damage_resist - $ammo_dr_pen;
+        $damage_resist = ($damage_resist < 0) ? 0 : $damage_resist;
+        $damage_resist = ($damage_resist / 100);
+        $base_damage = $base_damage_roll + $weapon_mod + $ammo_mod;
+        $damage_with_dt = $base_damage - $damage_threshold;
+        $damage_with_dr = $damage_with_dt - ($damage_with_dt * $damage_resist);
+        $damage_with_dr = ($damage_with_dr < 0) ? 0 : $damage_with_dr;
+        $damage = floor($damage_with_dr);
         return view('admin.admin',['characters'=>$characters,'group_id'=>$group_id,'damage'=>$damage]);
     }
 
@@ -73,6 +89,6 @@ class admin extends Controller
         $group_id = $request->input('group_id');
         $characters = character::where('group_id',$group_id)->get();
         $damage = 0;
-        return view('admin.admin',['characters'=>$characters,'group_id'=>$group_id,'damage'=>$damage]);
+        return view('admin.admin',['characters'=>$characters,'group_id'=>$group_id]);
     }
 }

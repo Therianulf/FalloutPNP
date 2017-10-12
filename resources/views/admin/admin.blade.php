@@ -18,6 +18,12 @@
                     Weapon id
                 </th>
                 <th>
+                    hit points
+                </th>
+                <th>
+                   total hit points
+                </th>
+                <th>
                      small guns
                 </th>
                 <th>
@@ -65,6 +71,12 @@
                         </td>
                         <td>
                             {{$weapon->id}}
+                        </td>
+                        <td>
+                            {{$character->stats->hit_points}}
+                        </td>
+                        <td>
+                            {{$character->stats->total_hit_points}}
                         </td>
                         <td>
                             {{$character->skills->small_guns}}
@@ -339,8 +351,10 @@
         <input type="hidden" name="group_id" value="{{$group_id}}"/>
         <label for="weapon_id">weapon id</label>
         <input type="number" name="weapon_id" value="0">
+        <br/>
         <label for="ammo_count">amount to remove</label>
         <input type="number" name="ammo_count" value="0">
+        <br/>
         <label for="ammo_class">type to remove</label>
         <select name="ammo_class">
             <option value="fmj">Full Metal Jacket</option>
@@ -349,6 +363,7 @@
             <option value="explosive">Explosive</option>
             <option value="incendiary">Incendiary</option>
         </select>
+        <br/>
         <button type="submit">take ammo</button>
     </form>
     <h3>reload ammo</h3>
@@ -357,6 +372,7 @@
         <input type="hidden" name="group_id" value="{{$group_id}}"/>
         <label for="weapon_id">weapon id</label>
         <input type="number" name="weapon_id" value="0">
+        <br/>
         <button type="submit">Reload Ammo</button>
     </form>
 
@@ -368,8 +384,27 @@
         {{csrf_field()}}
         <input type="hidden" name="group_id" value="{{$group_id}}"/>
 
-        <label for="weapon_id">Base Damage</label>
+        <label for="base_damage">Base Damage</label>
         <input type="number" name="base_damage" value="0">
+        <br/>
+        <label for="damage_threshold">Damage Threshold</label>
+        <input type="number" name="damage_threshold" value="0">
+        <br/>
+        <label for="damage_resistance">Damage Resistance</label>
+        <input type="number" name="damage_resistance" value="0">
+        <br/>
+        <label for="weapon_modifier">Weapon Modifier</label>
+        <input type="number" name="weapon_modifier" value="0">
+        <br/>
+        <label>Ammo Modifier</label>
+        <input type="number" name="ammo_modifier" value="0">
+        <br/>
+        <label for="ammo_dt_pen">ammo DT penetration</label>
+        <input type="number" name="ammo_dt_pen" value="0">
+        <br/>
+        <label>ammo DR penetration</label>
+        <input type="number" name="ammo_dr_pen" value="0">
+
 
         <button type="submit">Calculate Damage</button>
     </form>
@@ -381,7 +416,7 @@
 
         <label for="character_id">character id</label>
         <input type="number" name="character_id" value="0">
-        <label for="damage">character id</label>
+        <label for="damage">damage amount</label>
         <input type="number" name="damage" value="0">
 
 
