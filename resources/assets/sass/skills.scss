@@ -19,8 +19,10 @@
       }
       .checkboxCont {
         label {
-          width: 40%;
+          width: 60%;
+          height: 30px;
           float: left;
+          font-size: 14px;
           .fa-info-circle {
             margin-left: 15px;
             cursor: pointer;
@@ -36,13 +38,14 @@
           }
         }
         .inputCont {
-          width: 50%;
+          width: 40%;
           height: 32px;
           margin: 10px 0;
           float: right;
           input {
-            width: 80px;
+            width: 30px;
             height: 30px;
+            min-height: 30px;
             margin: 0 auto;
             display: block;
             position: relative;
@@ -52,12 +55,13 @@
             color: $glow-green-dark;
             border: none;
             border-radius: 5px;
+            font-size: 14px;
             &:focus {
               outline: none;
             }
           }
           input[type=checkbox] {
-            width: 50px;
+            width: 30px;
             float: left;
             margin-left: 20px;
           }
@@ -68,6 +72,11 @@
       width: 40%;
       margin-left: 3%;
       float:left;
+      #statProgressVal p {
+        text-align: center;
+        border-top: 1px solid $glow-green-dark;
+        border-bottom: 1px solid $glow-green-dark;
+      }
       .titleCont {
         flex: 3;
         display: flex;
@@ -97,7 +106,7 @@
           padding-top: 10px;
           .desc {
             p {
-              font-size: 16px;
+              font-size: 12px;
               padding: 0 15px;
             }
           }
