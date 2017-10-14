@@ -8,7 +8,7 @@
             <div class="header">
                 <div class="pgTitle">
                     <span class="sep left"></span>
-                    <span class="title">{{$character->first_name}} {{$character->last_name}}'s Stats</span>
+                    <span class="title">{{$character->first_name}}'s Stats</span>
                     <span class="sep right"></span>
                 </div>
                 <div class="hpCont statCont">
@@ -26,7 +26,7 @@
             </div>
             <div class="contentSection cf">
                 <div class="mainContent">
-                    <div class="contentCont step1" data-title="{{$character->first_name}} {{$character->last_name}}'s Stats">
+                    <div class="contentCont step1" data-title="{{$character->first_name}}'s Stats">
                         <div class="leftCont cf">
                             <div class="titleCont">
                                 <span class="sep left"></span>
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="contentCont step2 hide" data-title="{{$character->first_name}} {{$character->last_name}}'s Skills">
+                    <div class="contentCont step2 hide" data-title="{{$character->first_name}}'s Skills">
                         <div class="leftCont cf">
                             <div class="readoutCont active cf">
                                 <label for="barter">Barter:  <i class="fa fa-info-circle"></i></label>
@@ -232,8 +232,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="contentCont step3 hide" data-title="{{$character->first_name}} {{$character->last_name}}'s Inventory">
-                        <h1>Test</h1>
+                    <div class="contentCont step3 hide" data-title="{{$character->first_name}}'s Inventory">
+                        <ul>
+                            @foreach ($inventory as $item)
+                                <div class="readoutCont cf">
+                                    <label for="item{{ $item->id }}">{{ $item->item_name }}:  <i class="fa fa-info-circle"></i></label>
+                                    <div class="inputCont cf">
+                                        <input id="item{{ $item->id }}" value="{{ $item->item_count }}" disabled/>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
                 <div class="subContent">
@@ -683,7 +692,18 @@
                     </div>
                     <div class="inventoryCont contentCont hide">
                         <div class="descCont">
-                            <p>Testing</p>
+                            <div class="descCont">
+                                @foreach ($inventory as $item)
+                                    <div class="desc hide">
+                                        <div class="titleCont">
+                                            <span class="sep left"></span>
+                                            <span class="title">{{ $item->item_name }}</span>
+                                            <span class="sep right"></span>
+                                        </div>
+                                        <p>{{ $item->item_description }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>

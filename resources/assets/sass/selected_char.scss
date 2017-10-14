@@ -26,7 +26,7 @@
       }
     }
     .mainContent {
-      width: 57%;
+      width: 75%;
       float: left;
       .leftCont {
         width: 48%;
@@ -44,24 +44,30 @@
         margin: 10px 0;
       }
       .titleCont {
-        margin-bottom: 10px;
+        width: 90%;
+        margin: 0 0 10px 0;
         .sep {
           border-bottom: 2px solid;
           height: 20px;
         }
         .title {
-          font-size: 20px;
+          font-size: 10px;
           line-height: 20px;
           margin-top: 0;
         }
       }
       .readoutCont {
+        height: 30px;
+        margin: 10px 0;
         label {
           width: 70%;
-          height: 50px;
+          height: 20px;
           float: left;
+          font-size: 12px;
+          line-height: 14px;
+          margin: 3px 0;
           .fa-info-circle {
-            margin-left: 15px;
+            margin-left: 6px;
             cursor: pointer;
           }
         }
@@ -76,12 +82,10 @@
         }
         .inputCont {
           width: 25%;
-          height: 50px;
-          margin: 10px 0;
           float: right;
           input {
-            width: 80px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             margin: 0 auto;
             display: block;
             position: relative;
@@ -99,15 +103,14 @@
       }
     }
     .subContent {
-      width: 40%;
-      margin-left: 3%;
+      width: 25%;
       float:left;
       .skillCont, .statsCont {
         .descCont {
           padding-top: 10px;
           .desc {
             p {
-              font-size: 16px;
+              font-size: 12px;
               padding: 0 15px;
             }
           }
