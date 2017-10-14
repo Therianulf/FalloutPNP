@@ -19,6 +19,7 @@
       }
       input, textarea {
         width: 100%;
+        min-height: 30px;
         max-width: 100%;
         background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 50%,rgba(0,0,0,0.3) 100%);
         color: $glow-green-dark;
@@ -30,38 +31,43 @@
       }
       textarea {
         min-width: 100%;
-        min-height: 110px;
+        min-height: 60px;
         max-height: 110px;
       }
       .spinnerCont {
         label {
           width: 40%;
+          height: 30px;
           float: left;
+          font-size: 14px;
           .fa-info-circle {
             margin-left: 15px;
             cursor: pointer;
           }
         }
         .ui-spinner {
-          width: 40%;
+          width: 60%;
+          height: 30px;
           float: left;
           border: none;
           background: none;
-          margin: 10px 20% 10px 0;
+          margin: 10px 0;
           input {
             width: 50px;
             height: 30px;
+            min-height: 30px;
             margin: 0 auto;
             display: block;
             position: relative;
             float: none;
             text-align: center;
+            font-size: 14px;
             &:focus {
               outline: none;
             }
           }
           .ui-spinner-down {
-            width: 50px;
+            width: 30px;
             height: 30px;
             left: 20px;
             display: block;
@@ -70,7 +76,7 @@
             background: transparent;
             border: 2px solid $glow-green;
             border-radius: 0;
-            text-indent: 0;
+            text-indent: 1px;
             cursor: pointer;
             font-size: 20px;
             &:before {
@@ -83,7 +89,7 @@
             }
           }
           .ui-spinner-up {
-            width: 50px;
+            width: 30px;
             height: 30px;
             right: 20px;
             display: block;

@@ -33,4 +33,7 @@ class character extends Model
         return $this->hasMany(character_ammo::class,'character_id','id');
     }
 
+    public function armor(){
+        return $this->hasMany(character_armor::class,'character_id','id');
+    }
 }
