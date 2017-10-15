@@ -199,6 +199,9 @@
                     Player id
                 </th>
                 <th>
+                    Player base armor
+                </th>
+                <th>
                     armor id
                 </th>
                 <th>
@@ -247,6 +250,9 @@
                         </td>
                         <td>
                             {{$character->id}}
+                        </td>
+                        <td>
+                            {{$character->stats->base_armor}}
                         </td>
                         <td>
                             {{$armor->id}}
