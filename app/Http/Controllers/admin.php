@@ -23,6 +23,7 @@ class admin extends Controller
         $characters = character::where('group_id',$group_id)->get();
 
         $to_hit = $request->input('base_skill');
+        $to_hit = $to_hit + $request->input('bonus');
         $range = $request->input('gun_range') - $request->input('current_range');
         if ($range < 0){
             $to_hit = $to_hit - ($range * -3);

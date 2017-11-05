@@ -18,6 +18,9 @@
                     Weapon id
                 </th>
                 <th>
+                    Weapon Name
+                </th>
+                <th>
                     hit points
                 </th>
                 <th>
@@ -71,6 +74,9 @@
                         </td>
                         <td>
                             {{$weapon->id}}
+                        </td>
+                        <td>
+                            {{$weapon->weapon_name}}
                         </td>
                         <td>
                             {{$character->stats->hit_points}}
@@ -302,6 +308,9 @@
         <input type="hidden" name="group_id" value="{{$group_id}}"/>
         <label for="base_skill">Base Skill</label>
         <input name="base_skill" type="number"/>
+        <br/>
+        <label for="bonus">Added Bonus</label>
+        <input name="bonus" type="number"/>
         <br/>
         <label for="gun_range">Gun Range</label>
         <input name="gun_range" type="number"/>

@@ -15,6 +15,15 @@ class test extends Controller
         //$character_id = $request->char_id;
         //$character_skills = character_skills::determine_base_skills($character_id);
         //return view('test_views.test');
+        /*
+         * $faker = Faker::create();
+        for ($i = 1; $i < 3; $i++){
+            echo '<br/>';
+            echo $faker->lastName;
+
+        }
+         *
+         * */
         $characters = $request->user()->characters;
 
         foreach ($characters as $character) {
