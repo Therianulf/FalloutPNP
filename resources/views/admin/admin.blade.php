@@ -304,16 +304,16 @@
         <input name="base_skill" type="number"/>
         <br/>
         <label for="bonus">Added Bonus</label>
-        <input name="bonus" type="number"/>
+        <input name="bonus" type="number" value="0"/>
         <br/>
         <label for="gun_range">Gun Range</label>
-        <input name="gun_range" type="number"/>
+        <input name="gun_range" type="number" value="0"/>
         <br/>
         <label for="current_range">Range to target</label>
-        <input name="current_range" type="number"/>
+        <input name="current_range" type="number" value="0"/>
         <br/>
         <label for="ac">AC</label>
-        <input name="ac" type="number"/>
+        <input name="ac" type="number" value="0"/>
         <br/>
         <label for="light">Light</label>
         <select name="light">
@@ -332,10 +332,10 @@
         </select>
         <br/>
         <label for="cover">Cover</label>
-        <input name="cover" type="number"/>
+        <input name="cover" type="number" value="0"/>
         <br/>
         <label for="weapon_status">weapon status</label>
-        <input name="weapon_status" type="number"/>
+        <input name="weapon_status" type="number" value="0"/>
         <br/>
         <label for="target">targeted area</label>
         <select name="target">
