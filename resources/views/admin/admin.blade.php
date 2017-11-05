@@ -48,13 +48,10 @@
                     gun damage
                 </th>
                 <th>
+                    damage mod
+                </th>
+                <th>
                     gun condition
-                </th>
-                <th>
-                    gun functional
-                </th>
-                <th>
-                    damage type
                 </th>
                 <th>
                     ammo type
@@ -106,13 +103,10 @@
                             {{$weapon->damage}}
                         </td>
                         <td>
+                            {{$weapon->damage_modifier}}
+                        </td>
+                        <td>
                             {{$weapon->weapon_condition}}
-                        </td>
-                        <td>
-                            {{$weapon->functional}}
-                        </td>
-                        <td>
-                            {{$weapon->damage_type}}
                         </td>
                         <td>
                             {{$weapon->ammo_type}}
