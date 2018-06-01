@@ -1,28 +1,73 @@
 .characterPage {
   .contentSection {
     padding: 0 15px;
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      li {
-        margin: 0;
-        padding: 0;
+    .titleCont {
+      flex: 3;
+      display: flex;
+      flex-flow: row nowrap;
+      margin-top: 10px;
+      .sep {
+        border-top: 2px solid;
+        flex: 5;
+        &.left{
+          @include fade-border(bottom, left);
+        }
+        &.right{
+          @include fade-border(bottom, right);
+        }
+      }
+      .title {
+        font-size: 1.3em;
+        letter-spacing: 6px;
+        margin-top: -2vh;
+        text-align: center;
+        flex-grow: 1;
+        text-transform: uppercase;
       }
     }
     .mainContent {
-      width: 57%;
+      width: 75%;
       float: left;
+      .leftCont {
+        width: 48%;
+        float: left;
+        padding-top: 15px;
+      }
+      .rightCont {
+        width: 48%;
+        margin-left: 4%;
+        float: right;
+        padding-top: 15px;
+      }
       label {
         width: 100%;
         margin: 10px 0;
       }
-      .checkboxCont {
+      .titleCont {
+        width: 90%;
+        margin: 0 0 10px 0;
+        .sep {
+          border-bottom: 2px solid;
+          height: 20px;
+        }
+        .title {
+          font-size: 10px;
+          line-height: 20px;
+          margin-top: 0;
+        }
+      }
+      .readoutCont {
+        height: 30px;
+        margin: 10px 0;
         label {
-          width: 40%;
+          width: 70%;
+          height: 20px;
           float: left;
+          font-size: 12px;
+          line-height: 14px;
+          margin: 3px 0;
           .fa-info-circle {
-            margin-left: 15px;
+            margin-left: 6px;
             cursor: pointer;
           }
         }
@@ -36,12 +81,10 @@
           }
         }
         .inputCont {
-          width: 50%;
-          height: 32px;
-          margin: 10px 0;
+          width: 25%;
           float: right;
           input {
-            width: 80px;
+            width: 30px;
             height: 30px;
             margin: 0 auto;
             display: block;
@@ -56,48 +99,18 @@
               outline: none;
             }
           }
-          input[type=checkbox] {
-            width: 50px;
-            float: left;
-            margin-left: 20px;
-          }
         }
       }
     }
     .subContent {
-      width: 40%;
-      margin-left: 3%;
+      width: 25%;
       float:left;
-      .titleCont {
-        flex: 3;
-        display: flex;
-        flex-flow: row nowrap;
-        margin-top: 10px;
-        .sep {
-          border-top: 2px solid;
-          flex: 5;
-          &.left{
-            @include fade-border(bottom, left);
-          }
-          &.right{
-            @include fade-border(bottom, right);
-          }
-        }
-        .title {
-          font-size: 1.3em;
-          letter-spacing: 6px;
-          margin-top: -2vh;
-          text-align: center;
-          flex-grow: 1;
-          text-transform: uppercase;
-        }
-      }
-      .skillCont {
+      .skillCont, .statsCont {
         .descCont {
           padding-top: 10px;
           .desc {
             p {
-              font-size: 16px;
+              font-size: 12px;
               padding: 0 15px;
             }
           }

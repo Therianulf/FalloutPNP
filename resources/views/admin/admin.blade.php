@@ -18,6 +18,9 @@
                     Weapon id
                 </th>
                 <th>
+                    Weapon Name
+                </th>
+                <th>
                     hit points
                 </th>
                 <th>
@@ -45,13 +48,10 @@
                     gun damage
                 </th>
                 <th>
+                    damage mod
+                </th>
+                <th>
                     gun condition
-                </th>
-                <th>
-                    gun functional
-                </th>
-                <th>
-                    damage type
                 </th>
                 <th>
                     ammo type
@@ -71,6 +71,9 @@
                         </td>
                         <td>
                             {{$weapon->id}}
+                        </td>
+                        <td>
+                            {{$weapon->weapon_name}}
                         </td>
                         <td>
                             {{$character->stats->hit_points}}
@@ -100,13 +103,10 @@
                             {{$weapon->damage}}
                         </td>
                         <td>
+                            {{$weapon->damage_modifier}}
+                        </td>
+                        <td>
                             {{$weapon->weapon_condition}}
-                        </td>
-                        <td>
-                            {{$weapon->functional}}
-                        </td>
-                        <td>
-                            {{$weapon->damage_type}}
                         </td>
                         <td>
                             {{$weapon->ammo_type}}
@@ -199,6 +199,9 @@
                     Player id
                 </th>
                 <th>
+                    Player base armor
+                </th>
+                <th>
                     armor id
                 </th>
                 <th>
@@ -247,6 +250,9 @@
                         </td>
                         <td>
                             {{$character->id}}
+                        </td>
+                        <td>
+                            {{$character->stats->base_armor}}
                         </td>
                         <td>
                             {{$armor->id}}
@@ -303,14 +309,17 @@
         <label for="base_skill">Base Skill</label>
         <input name="base_skill" type="number"/>
         <br/>
+        <label for="bonus">Added Bonus</label>
+        <input name="bonus" type="number" value="0"/>
+        <br/>
         <label for="gun_range">Gun Range</label>
-        <input name="gun_range" type="number"/>
+        <input name="gun_range" type="number" value="0"/>
         <br/>
         <label for="current_range">Range to target</label>
-        <input name="current_range" type="number"/>
+        <input name="current_range" type="number" value="0"/>
         <br/>
         <label for="ac">AC</label>
-        <input name="ac" type="number"/>
+        <input name="ac" type="number" value="0"/>
         <br/>
         <label for="light">Light</label>
         <select name="light">
@@ -329,10 +338,10 @@
         </select>
         <br/>
         <label for="cover">Cover</label>
-        <input name="cover" type="number"/>
+        <input name="cover" type="number" value="0"/>
         <br/>
         <label for="weapon_status">weapon status</label>
-        <input name="weapon_status" type="number"/>
+        <input name="weapon_status" type="number" value="0"/>
         <br/>
         <label for="target">targeted area</label>
         <select name="target">

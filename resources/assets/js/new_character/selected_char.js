@@ -1,19 +1,30 @@
 (function($) {
     $.widget( "fo.characterPage", {
         options: {
+            crntIndex: 0,
             selectors: {}
         },
 
         _create: function() {
             var widget = this,
-                self = $(widget.element);
-console.log("INIT");
-            widget._on({
-                'click.checkboxCont .fa-info-circle': function(event){
-                    var crntTrgt = $(event.currentTarget),
-                        index = crntTrgt.parents('.checkboxCont').index();
+                self = $(widget.element),
+                pageTitleCont = self.find('.pgTitle .title');
 
-                    widget._toggleSubContent(index);
+            widget._setSelector('pageTitleCont', pageTitleCont);
+
+            widget._on({
+                'click.readoutCont .fa-info-circle': function(event){
+                    var crntTrgt = $(event.currentTarget),
+                        index = crntTrgt.parents('.readoutCont').index();
+
+                    widget._toggleSubContent(crntTrgt);
+                },
+                'click.subMenu a': function(event){
+                    event.preventDefault();
+                    var crntTrgt = $(event.currentTarget),
+                        index = crntTrgt.index();
+
+                    widget._toggleContent(index);
                 },
                 'endSibLife': function(){
                     var pageChildren = self.siblings('.pageCont');
@@ -38,13 +49,30 @@ console.log("INIT");
             selectors[key] = value;
         },
 
-        _toggleSubContent: function(index) {
+        _toggleContent: function(index) {
             var widget = this,
                 self = $(widget.element),
-                checkboxCont = self.find('.checkboxCont:eq(' + index + ')'),
-                subContent = self.find('.skillCont .descCont .desc:eq(' + index + ')');
+                pageTitleCont = widget.options.selectors.pageTitleCont,
+                mainContent = self.find('.mainContent .contentCont:eq(' + index + ')'),
+                title = mainContent.data('title'),
+                subContent = self.find('.subContent .contentCont:eq(' + index + ')'),
+                subMenuLinks = self.find('.subMenu a:eq(' + index + ')');
 
-            checkboxCont.addClass('active').siblings('.checkboxCont').removeClass('active');
+            widget._setOption('crntIndex', index);
+            pageTitleCont.html(title);
+            mainContent.removeClass('hide').siblings('.contentCont').addClass('hide');
+            subContent.removeClass('hide').siblings('.contentCont').addClass('hide');
+            subMenuLinks.addClass('active').siblings('a').removeClass('active');
+        },
+
+        _toggleSubContent: function(crntTrgt) {
+            var widget = this,
+                self = $(widget.element),
+                parentItemCont = $(crntTrgt).closest('.readoutCont'),
+                crntIndex = $(parentItemCont).parents('.contentCont').find('.readoutCont').index(parentItemCont),
+                subContent = self.find('.subContent .contentCont:eq(' + widget.options.crntIndex + ') .descCont .desc:eq(' + crntIndex + ')');
+
+            parentItemCont.addClass('active').siblings('.readoutCont').removeClass('active');
             subContent.removeClass('hide').siblings('.desc').addClass('hide');
         }
 
